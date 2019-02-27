@@ -22,6 +22,9 @@ class GameViewController: UIViewController {
             
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! GameScene? {
+                if let view = self.view {
+                    sceneNode.deadCenter = CGPoint(x: view.bounds.width/2, y: view.bounds.height/2)
+                }
                 
                 // Copy gameplay related content over to the scene
                 sceneNode.entities = scene.entities
@@ -31,7 +34,7 @@ class GameViewController: UIViewController {
                 sceneNode.scaleMode = .aspectFill
                 
                 // Present the scene
-                if let view = self.sceneView {
+                if let view = self.sceneView as! SKView? {
                     view.presentScene(sceneNode)
                     
                     view.ignoresSiblingOrder = true

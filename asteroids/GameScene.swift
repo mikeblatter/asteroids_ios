@@ -10,6 +10,7 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
+    public var deadCenter: CGPoint? = nil
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -17,22 +18,23 @@ class GameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0
     
     private var player: SKSpriteNode?
-    private var playerRotateAction = SKAction.init(named: "playerRotateAction")!
 
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
         
         self.player = self.childNode(withName: "//player") as? SKSpriteNode
-
+        
         if let player = self.player {
             player.alpha = 0.0
             player.run(SKAction.fadeIn(withDuration: 2.0))
         }
     }
     
-    func touchDown(atPoint pos : CGPoint) {
-        if let player = self.player {
-            player.run(SKAction.init(named: "playerRotateAction")!)
+    func touchDown(atPoint position:CGPoint) {
+        if let deadCenter = self.deadCenter {
+            let angleFromCenter = deadCenter.angle(toPoint: position)
+            let playerRotateAction = SKAction.rotate(byAngle: angleFromCenter, duration: 1)
+            self.player?.run(playerRotateAction)
         }
     }
     
