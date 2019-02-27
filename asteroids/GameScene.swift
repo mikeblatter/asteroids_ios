@@ -25,18 +25,18 @@ class GameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0
     
     private var player: SKSpriteNode?
-    
-    override func didMove(to view: SKView) {
-        size = view.bounds.size
-        deadCenter = CGPoint(x: size.width/2, y: size.height/2)
-    }
 
     override func sceneDidLoad() {
-        if let deadCenter = self.deadCenter {
-            playerSprite.position = deadCenter
+        if let scene = self.scene {
+            // Get the center of the game screen
+            let sceneFrame = scene.frame
+            deadCenter = CGPoint(x: sceneFrame.width/2, y: sceneFrame.height/2)
+            
+            // Add the player
+            playerSprite.position = deadCenter!
             addChild(playerSprite)
         }
-        
+
         self.lastUpdateTime = 0
     }
     
