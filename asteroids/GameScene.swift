@@ -13,28 +13,28 @@ let degreesToRadians = CGFloat.pi / 180
 let radiansToDegrees = 180 / CGFloat.pi
 
 class GameScene: SKScene {
-    let playerSprite = SKSpriteNode(imageNamed: "Player")
-    let cannonSprite = SKSpriteNode(imageNamed: "Cannon")
-    let turretSprite = SKSpriteNode(imageNamed: "Turret")
+    private var deadCenter: CGPoint? = nil
+    private var lastUpdateTime : TimeInterval = 0
     
-    public var deadCenter: CGPoint? = nil
+    // Node Textures (images to set to nodes)
+    private let playerTexture = SKTexture(imageNamed: "Player")
+    private let cannonTexture = SKTexture(imageNamed: "Cannon")
+    private let turretTexture = SKTexture(imageNamed: "Turret")
+    
+    // Sprites
+    private var player: SKSpriteNode? = nil
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     
-    private var lastUpdateTime : TimeInterval = 0
-    
-    private var player: SKSpriteNode?
-
     override func sceneDidLoad() {
         if let scene = self.scene {
             // Get the center of the game screen
             let sceneFrame = scene.frame
             deadCenter = CGPoint(x: sceneFrame.width/2, y: sceneFrame.height/2)
             
-            // Add the player
-            playerSprite.position = deadCenter!
-            addChild(playerSprite)
+            player = self.childNode(withName: "//Player") as? SKSpriteNode
+            player!.texture = self.playerTexture
         }
 
         self.lastUpdateTime = 0
