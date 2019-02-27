@@ -1,15 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0UJ-o1-Au4">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Welcome-->
+        <scene sceneID="rIB-7J-YFq">
+            <objects>
+                <viewController title="Welcome" id="0hz-DA-981" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ODR-O6-4gj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asteroids" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ies-Og-WCk">
+                                <rect key="frame" x="151" y="116" width="73" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Play:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kld-ZZ-35U">
+                                <rect key="frame" x="16" y="195" width="86" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Player is always in the middle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXg-Gd-uDy">
+                                <rect key="frame" x="16" y="243" width="235" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Tap screen to change direction and shoot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5G-Xd-LwP">
+                                <rect key="frame" x="16" y="272" width="329" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- You get three lives" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnh-c2-fbd">
+                                <rect key="frame" x="16" y="301" width="153" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBp-6m-Xf1">
+                                <rect key="frame" x="16" y="594" width="343" height="53"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="xY4-hN-RLw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <state key="normal" title="Play!">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" identifier="welcomeGameSegue" id="Jen-T3-cvL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kld-ZZ-35U" firstAttribute="leading" secondItem="ODR-O6-4gj" secondAttribute="leadingMargin" id="03T-PL-8TS"/>
+                            <constraint firstItem="ies-Og-WCk" firstAttribute="top" secondItem="DeI-td-cg0" secondAttribute="top" constant="52" id="4b5-JH-7ch"/>
+                            <constraint firstItem="kld-ZZ-35U" firstAttribute="top" secondItem="DeI-td-cg0" secondAttribute="top" constant="131" id="7WG-Mc-C2i"/>
+                            <constraint firstItem="mBp-6m-Xf1" firstAttribute="trailing" secondItem="ODR-O6-4gj" secondAttribute="trailingMargin" id="8G2-AG-w9J"/>
+                            <constraint firstItem="aXg-Gd-uDy" firstAttribute="leading" secondItem="z5G-Xd-LwP" secondAttribute="leading" id="9Cb-BD-WUF"/>
+                            <constraint firstItem="aXg-Gd-uDy" firstAttribute="top" secondItem="kld-ZZ-35U" secondAttribute="bottom" constant="27" id="Aol-qb-v8H"/>
+                            <constraint firstItem="Nnh-c2-fbd" firstAttribute="leading" secondItem="mBp-6m-Xf1" secondAttribute="leading" id="PEm-tX-MJa"/>
+                            <constraint firstItem="z5G-Xd-LwP" firstAttribute="top" secondItem="aXg-Gd-uDy" secondAttribute="bottom" constant="8" symbolic="YES" id="Qp8-Eb-0yE"/>
+                            <constraint firstItem="kld-ZZ-35U" firstAttribute="leading" secondItem="aXg-Gd-uDy" secondAttribute="leading" id="UWn-B7-uS3"/>
+                            <constraint firstItem="z5G-Xd-LwP" firstAttribute="leading" secondItem="Nnh-c2-fbd" secondAttribute="leading" id="Vpu-FF-T9D"/>
+                            <constraint firstItem="Nnh-c2-fbd" firstAttribute="top" secondItem="z5G-Xd-LwP" secondAttribute="bottom" constant="8" symbolic="YES" id="XBN-no-C12"/>
+                            <constraint firstItem="ies-Og-WCk" firstAttribute="centerX" secondItem="mBp-6m-Xf1" secondAttribute="centerX" id="aQb-V3-HDm"/>
+                            <constraint firstAttribute="bottom" secondItem="mBp-6m-Xf1" secondAttribute="bottom" constant="20" symbolic="YES" id="bU6-aS-Qvh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DeI-td-cg0"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Welcome" id="W2i-4O-bIw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n8q-lW-fWn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="256.80000000000001" y="134.48275862068968"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="asteroids" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,6 +100,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1068" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xZs-Kv-qNF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0UJ-o1-Au4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eAB-T2-61x">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0hz-DA-981" kind="relationship" relationship="rootViewController" id="YH4-Og-pqg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tr4-bm-7TF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-682.39999999999998" y="134.48275862068968"/>
         </scene>
     </scenes>
 </document>
