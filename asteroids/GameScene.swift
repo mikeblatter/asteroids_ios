@@ -31,7 +31,9 @@ class GameScene: SKScene {
     }
     
     func touchDown(atPoint pos : CGPoint) {
-        
+        if let player = self.player {
+            player.run(SKAction.init(named: "playerRotateAction")!)
+        }
     }
     
     func touchMoved(toPoint pos : CGPoint) {
