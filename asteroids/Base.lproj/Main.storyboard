@@ -91,12 +91,25 @@
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="asteroids" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <skView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULO-rq-HXx">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </skView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ULO-rq-HXx" firstAttribute="bottom" secondItem="4qk-I5-YsI" secondAttribute="bottom" id="B7z-b3-ehl"/>
+                            <constraint firstItem="ULO-rq-HXx" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="GkB-6i-fet"/>
+                            <constraint firstAttribute="trailing" secondItem="ULO-rq-HXx" secondAttribute="trailing" id="N20-Y5-4k8"/>
+                            <constraint firstItem="ULO-rq-HXx" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="rb2-xf-0p7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
+                    <connections>
+                        <outlet property="sceneView" destination="ULO-rq-HXx" id="hWA-NZ-YEZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
