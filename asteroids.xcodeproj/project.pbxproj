@@ -55,6 +55,7 @@
 		9E441DA02227126B0024AE9B /* asteroidsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asteroidsUITests.swift; sourceTree = "<group>"; };
 		9E441DA22227126B0024AE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EA5A3FE22272425002A7AB5 /* CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
+		9EA5A4002227417B002A7AB5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +86,7 @@
 		9E441D6E222712690024AE9B = {
 			isa = PBXGroup;
 			children = (
+				9EA5A4002227417B002A7AB5 /* README.md */,
 				9E441D79222712690024AE9B /* asteroids */,
 				9E441D942227126B0024AE9B /* asteroidsTests */,
 				9E441D9F2227126B0024AE9B /* asteroidsUITests */,
