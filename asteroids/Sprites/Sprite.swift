@@ -9,7 +9,6 @@
 import SpriteKit
 
 let degreesToRadians = CGFloat.pi / 180
-let radiansToDegrees = 180 / CGFloat.pi
 
 protocol Sprite {
     var size: CGSize { get }
@@ -24,8 +23,8 @@ extension Sprite {
     
     public func direction(to possibleOtherPosition: CGPoint?) -> CGFloat? {
         if let spritePosition = spriteNode?.position, let otherPosition = possibleOtherPosition {
-            let deltaX = otherPosition.x - spritePosition.x
-            let deltaY = otherPosition.y - spritePosition.y
+            let deltaX = spritePosition.x - otherPosition.x
+            let deltaY = spritePosition.y - otherPosition.y
             
             let angle = atan2(deltaY, deltaX)
             return angle + 90 * degreesToRadians
