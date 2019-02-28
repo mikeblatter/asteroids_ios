@@ -29,6 +29,9 @@ class GameScene: SKScene {
     // Constants
     let playerMissileSpeed: CGFloat = 300.0
     
+    // Sounds
+    let shootSound = SKAction.playSoundFileNamed("Shoot.wav", waitForCompletion: false)
+    
     override func sceneDidLoad() {
         // Get player and set image
         player = self.childNode(withName: "//Player") as? SKSpriteNode
@@ -59,6 +62,7 @@ class GameScene: SKScene {
             self.player?.run(playerRotateAction)
             
             // Shoot
+            
             let missile = SKSpriteNode(imageNamed: "PlayerMissile")
             missile.position = player.position
             missile.zRotation = rotation
@@ -73,6 +77,8 @@ class GameScene: SKScene {
             
             let actionMoveDone = SKAction.removeFromParent()
             missile.run(SKAction.sequence([missileMoveAction, actionMoveDone]))
+
+            run(shootSound)
         }
     }
     
