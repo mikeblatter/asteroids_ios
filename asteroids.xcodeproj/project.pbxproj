@@ -21,6 +21,8 @@
 		9EA5A4082227492E002A7AB5 /* Shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5A4052227492E002A7AB5 /* Shoot.wav */; };
 		9EA5A4092227492E002A7AB5 /* Hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5A4062227492E002A7AB5 /* Hit.wav */; };
 		9ECFC86822288E8500372B2A /* Asteroid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFC86722288E8500372B2A /* Asteroid.swift */; };
+		9ECFC86E22289B3800372B2A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFC86D22289B3800372B2A /* Player.swift */; };
+		9ECFC87022289BEF00372B2A /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFC86F22289BEF00372B2A /* Sprite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		9EA5A4052227492E002A7AB5 /* Shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Shoot.wav; sourceTree = "<group>"; };
 		9EA5A4062227492E002A7AB5 /* Hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Hit.wav; sourceTree = "<group>"; };
 		9ECFC86722288E8500372B2A /* Asteroid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asteroid.swift; sourceTree = "<group>"; };
+		9ECFC86D22289B3800372B2A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		9ECFC86F22289BEF00372B2A /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				9ECFC86722288E8500372B2A /* Asteroid.swift */,
+				9ECFC86D22289B3800372B2A /* Player.swift */,
+				9ECFC86F22289BEF00372B2A /* Sprite.swift */,
 			);
 			path = Sprites;
 			sourceTree = "<group>";
@@ -301,8 +307,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ECFC86822288E8500372B2A /* Asteroid.swift in Sources */,
+				9ECFC86E22289B3800372B2A /* Player.swift in Sources */,
 				9E441D81222712690024AE9B /* GameScene.swift in Sources */,
 				9E441D83222712690024AE9B /* GameViewController.swift in Sources */,
+				9ECFC87022289BEF00372B2A /* Sprite.swift in Sources */,
 				9E441D7B222712690024AE9B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

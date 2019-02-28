@@ -1,5 +1,5 @@
 //
-//  Asteroid.swift
+//  Player.swift
 //  asteroids
 //
 //  Created by Michael Blatter on 2/28/19.
@@ -8,10 +8,10 @@
 
 import SpriteKit
 
-class Asteroid: Sprite {
-    internal let size = CGSize(width: 10, height: 10)
+class Player: Sprite {    
+    internal let size = CGSize(width: 20, height: 20)
     internal var spriteNode: SKSpriteNode?
-    internal let texture = SKTexture(imageNamed: "Asteroid")
+    internal let texture = SKTexture(imageNamed: "Player")
     
     public init() {
         spriteNode = create()

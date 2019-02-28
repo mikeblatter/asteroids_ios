@@ -9,9 +9,6 @@
 import SpriteKit
 import GameplayKit
 
-let degreesToRadians = CGFloat.pi / 180
-let radiansToDegrees = 180 / CGFloat.pi
-
 class GameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0
     
@@ -42,10 +39,10 @@ class GameScene: SKScene {
     }
     
     func getAsteroid() -> SKSpriteNode {
-        let asteroid = Asteroid(size: CGSize(width: 20.0, height: 20.0))
-        asteroid.position = CGPoint(x: 100, y: 100)
+        let asteroid = Asteroid()
+        asteroid.spriteNode?.position = CGPoint(x: 100, y: 100)
         
-        return asteroid
+        return asteroid.spriteNode!
     }
     
     func touchDown(atPoint position:CGPoint) {
