@@ -15,6 +15,7 @@ class GameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0
     
     // Node Textures (images to set to nodes)
+    private let asteroidTexture = SKTexture(imageNamed: "Asteroid")
     private let playerTexture = SKTexture(imageNamed: "Player")
     private let cannonTexture = SKTexture(imageNamed: "Cannon")
     private let turretTexture = SKTexture(imageNamed: "Turret")
@@ -31,6 +32,15 @@ class GameScene: SKScene {
         player!.texture = self.playerTexture
 
         self.lastUpdateTime = 0
+        
+        scene?.addChild(getAsteroid())
+    }
+    
+    func getAsteroid() -> SKSpriteNode {
+        let asteroid = SKSpriteNode(texture: asteroidTexture, size: CGSize(width: 20.0, height: 20.0))
+        asteroid.position = CGPoint(x: 100, y: 100)
+        
+        return asteroid
     }
     
     func touchDown(atPoint position:CGPoint) {
