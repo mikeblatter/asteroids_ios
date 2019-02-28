@@ -20,6 +20,7 @@
 		9EA5A4072227492E002A7AB5 /* Collision.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5A4042227492E002A7AB5 /* Collision.wav */; };
 		9EA5A4082227492E002A7AB5 /* Shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5A4052227492E002A7AB5 /* Shoot.wav */; };
 		9EA5A4092227492E002A7AB5 /* Hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5A4062227492E002A7AB5 /* Hit.wav */; };
+		9ECFC86822288E8500372B2A /* Asteroid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFC86722288E8500372B2A /* Asteroid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		9EA5A4042227492E002A7AB5 /* Collision.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Collision.wav; sourceTree = "<group>"; };
 		9EA5A4052227492E002A7AB5 /* Shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Shoot.wav; sourceTree = "<group>"; };
 		9EA5A4062227492E002A7AB5 /* Hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Hit.wav; sourceTree = "<group>"; };
+		9ECFC86722288E8500372B2A /* Asteroid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asteroid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		9E441D79222712690024AE9B /* asteroids */ = {
 			isa = PBXGroup;
 			children = (
+				9ECFC86622288E7300372B2A /* Sprites */,
 				9EA5A4032227492E002A7AB5 /* Sounds */,
 				9E441D7A222712690024AE9B /* AppDelegate.swift */,
 				9E441D7C222712690024AE9B /* GameScene.sks */,
@@ -151,6 +154,14 @@
 				9EA5A4062227492E002A7AB5 /* Hit.wav */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		9ECFC86622288E7300372B2A /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				9ECFC86722288E8500372B2A /* Asteroid.swift */,
+			);
+			path = Sprites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ECFC86822288E8500372B2A /* Asteroid.swift in Sources */,
 				9E441D81222712690024AE9B /* GameScene.swift in Sources */,
 				9E441D83222712690024AE9B /* GameViewController.swift in Sources */,
 				9E441D7B222712690024AE9B /* AppDelegate.swift in Sources */,
