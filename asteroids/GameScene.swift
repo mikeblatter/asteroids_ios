@@ -26,6 +26,9 @@ class GameScene: SKScene {
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     
+    // Constants
+    let playerMissileSpeed: CGFloat = 300.0
+    
     override func sceneDidLoad() {
         // Get player and set image
         player = self.childNode(withName: "//Player") as? SKSpriteNode
@@ -62,24 +65,14 @@ class GameScene: SKScene {
             
             addChild(missile)
             
-            let distance: CGFloat
-            if let view = self.view {
-                if view.bounds.width > view.bounds.height {
-                    distance = view.bounds.width
-                } else {
-                    distance = view.bounds.height
-                }
-                
-                let degrees = rotation * 180 / .pi
-                let x = distance * cos(degrees) + missile.position.x
-                let y = distance * sin(degrees) + missile.position.y
-                
-                let moveToPoint = CGPoint(x: x, y: y)
-                
-                let missleMoveAction = SKAction.move(to: moveToPoint, duration: 1)
-                let actionMoveDone = SKAction.removeFromParent()
-                missile.run(SKAction.sequence([missleMoveAction, actionMoveDone]))
-            }
+            let endPositionX = missile.position.x + deltaX * -10
+            let endPositionY = missile.position.y + deltaY * -10
+            let endPosition = CGPoint(x: endPositionX, y: endPositionY)
+            
+            let missileMoveAction = SKAction.move(to: endPosition, duration: 1)
+            
+            let actionMoveDone = SKAction.removeFromParent()
+            missile.run(SKAction.sequence([missileMoveAction, actionMoveDone]))
         }
     }
     
