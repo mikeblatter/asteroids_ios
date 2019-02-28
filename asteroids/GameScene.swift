@@ -10,6 +10,7 @@ import SpriteKit
 import GameplayKit
 
 let degreesToRadians = CGFloat.pi / 180
+let radiansToDegrees = 180 / CGFloat.pi
 
 class GameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0
@@ -17,8 +18,7 @@ class GameScene: SKScene {
     // Node Textures (images to set to nodes)
     private let asteroidTexture = SKTexture(imageNamed: "Asteroid")
     private let playerTexture = SKTexture(imageNamed: "Player")
-    private let cannonTexture = SKTexture(imageNamed: "Cannon")
-    private let turretTexture = SKTexture(imageNamed: "Turret")
+    private let playerMissleTexture = SKTexture(imageNamed: "PlayerMissle")
     
     // Sprites
     private var player: SKSpriteNode? = nil
@@ -45,6 +45,7 @@ class GameScene: SKScene {
     
     func touchDown(atPoint position:CGPoint) {
         if let player = self.player {
+            
             let deltaX = player.position.x - position.x
             let deltaY = player.position.y - position.y
             
@@ -53,6 +54,32 @@ class GameScene: SKScene {
             
             let playerRotateAction = SKAction.rotate(toAngle: rotation, duration: 0.1, shortestUnitArc: true)
             self.player?.run(playerRotateAction)
+            
+            // Shoot
+            let missile = SKSpriteNode(imageNamed: "PlayerMissile")
+            missile.position = player.position
+            missile.zRotation = rotation
+            
+            addChild(missile)
+            
+            let distance: CGFloat
+            if let view = self.view {
+                if view.bounds.width > view.bounds.height {
+                    distance = view.bounds.width
+                } else {
+                    distance = view.bounds.height
+                }
+                
+                let degrees = rotation * 180 / .pi
+                let x = distance * cos(degrees) + missile.position.x
+                let y = distance * sin(degrees) + missile.position.y
+                
+                let moveToPoint = CGPoint(x: x, y: y)
+                
+                let missleMoveAction = SKAction.move(to: moveToPoint, duration: 1)
+                let actionMoveDone = SKAction.removeFromParent()
+                missile.run(SKAction.sequence([missleMoveAction, actionMoveDone]))
+            }
         }
     }
     
