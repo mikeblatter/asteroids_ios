@@ -33,4 +33,10 @@ extension Sprite {
         
         return nil
     }
+    
+    public func add(to scene: SKScene) {
+        if let spriteNode = self.spriteNode {
+            scene.addChild(spriteNode)
+        }
+    }
 }

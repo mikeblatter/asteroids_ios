@@ -13,7 +13,8 @@ class Asteroid: Sprite {
     internal var spriteNode: SKSpriteNode?
     internal let texture = SKTexture(imageNamed: "Asteroid")
     
-    public init() {
+    public init(position: CGPoint) {
         spriteNode = create()
+        spriteNode?.position = position
     }
 }

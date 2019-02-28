@@ -13,7 +13,8 @@ class Player: Sprite {
     internal var spriteNode: SKSpriteNode?
     internal let texture = SKTexture(imageNamed: "Player")
     
-    public init() {
+    public init(position: CGPoint) {
         spriteNode = create()
+        spriteNode?.position = position
     }
 }

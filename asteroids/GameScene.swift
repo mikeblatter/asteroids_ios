@@ -13,11 +13,10 @@ class GameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0
     
     // Node Textures (images to set to nodes)
-    private let playerTexture = SKTexture(imageNamed: "Player")
     private let playerMissleTexture = SKTexture(imageNamed: "PlayerMissle")
     
     // Sprites
-    private var player: SKSpriteNode? = nil
+    private let player = Player(position: CGPoint(x: 0, y: 0))
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -29,51 +28,34 @@ class GameScene: SKScene {
     let shootSound = SKAction.playSoundFileNamed("Shoot.wav", waitForCompletion: false)
     
     override func sceneDidLoad() {
-        // Get player and set image
-        player = self.childNode(withName: "//Player") as? SKSpriteNode
-        player!.texture = self.playerTexture
-
         self.lastUpdateTime = 0
         
-        scene?.addChild(getAsteroid())
-    }
-    
-    func getAsteroid() -> SKSpriteNode {
-        let asteroid = Asteroid()
-        asteroid.spriteNode?.position = CGPoint(x: 100, y: 100)
+        player.add(to: self)
         
-        return asteroid.spriteNode!
+        let asteroid = Asteroid(position: CGPoint(x: 0, y: 100))
+        asteroid.add(to: self)
     }
     
     func touchDown(atPoint position:CGPoint) {
-        if let player = self.player {
-            
-            let deltaX = player.position.x - position.x
-            let deltaY = player.position.y - position.y
-            
-            let angle = atan2(deltaY, deltaX)
-            let rotation = angle + 90 * degreesToRadians
-            
-            let playerRotateAction = SKAction.rotate(toAngle: rotation, duration: 0.1, shortestUnitArc: true)
-            self.player?.run(playerRotateAction)
-            
-            // Shoot
+        if let playerSpriteNode = player.spriteNode, let direction = player.direction(to: position) {
+            let playerRotateAction = SKAction.rotate(toAngle: direction, duration: 0.1, shortestUnitArc: true)
+            playerSpriteNode.run(playerRotateAction)
             
             let missile = SKSpriteNode(imageNamed: "PlayerMissile")
-            missile.position = player.position
-            missile.zRotation = rotation
+            missile.position = playerSpriteNode.position
+            missile.zRotation = direction
             
             addChild(missile)
             
-            let endPositionX = missile.position.x + deltaX * -10
-            let endPositionY = missile.position.y + deltaY * -10
+            let endPositionX = missile.position.x + 100 * -10 // TODO 100 to deltaX
+            let endPositionY = missile.position.y + 100 * -10 // TODO 100 to deltaY
             let endPosition = CGPoint(x: endPositionX, y: endPositionY)
             
             let missileMoveAction = SKAction.move(to: endPosition, duration: 1)
             
             let actionMoveDone = SKAction.removeFromParent()
             missile.run(SKAction.sequence([missileMoveAction, actionMoveDone]))
-
+            
             run(shootSound)
         }
     }
