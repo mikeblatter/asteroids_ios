@@ -17,7 +17,6 @@
 		9E441D8B2227126B0024AE9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E441D892227126B0024AE9B /* LaunchScreen.storyboard */; };
 		9E441D962227126B0024AE9B /* asteroidsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E441D952227126B0024AE9B /* asteroidsTests.swift */; };
 		9E441DA12227126B0024AE9B /* asteroidsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E441DA02227126B0024AE9B /* asteroidsUITests.swift */; };
-		9EA5A3FF22272425002A7AB5 /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA5A3FE22272425002A7AB5 /* CGPoint.swift */; };
 		9EA5A4072227492E002A7AB5 /* Collision.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5A4042227492E002A7AB5 /* Collision.wav */; };
 		9EA5A4082227492E002A7AB5 /* Shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5A4052227492E002A7AB5 /* Shoot.wav */; };
 		9EA5A4092227492E002A7AB5 /* Hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5A4062227492E002A7AB5 /* Hit.wav */; };
@@ -57,7 +56,6 @@
 		9E441D9C2227126B0024AE9B /* asteroidsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = asteroidsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E441DA02227126B0024AE9B /* asteroidsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asteroidsUITests.swift; sourceTree = "<group>"; };
 		9E441DA22227126B0024AE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9EA5A3FE22272425002A7AB5 /* CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
 		9EA5A4002227417B002A7AB5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9EA5A4042227492E002A7AB5 /* Collision.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Collision.wav; sourceTree = "<group>"; };
 		9EA5A4052227492E002A7AB5 /* Shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Shoot.wav; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				9EA5A4032227492E002A7AB5 /* Sounds */,
-				9EA5A3FD22272415002A7AB5 /* Extensions */,
 				9E441D7A222712690024AE9B /* AppDelegate.swift */,
 				9E441D7C222712690024AE9B /* GameScene.sks */,
 				9E441D7E222712690024AE9B /* Actions.sks */,
@@ -144,14 +141,6 @@
 				9E441DA22227126B0024AE9B /* Info.plist */,
 			);
 			path = asteroidsUITests;
-			sourceTree = "<group>";
-		};
-		9EA5A3FD22272415002A7AB5 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				9EA5A3FE22272425002A7AB5 /* CGPoint.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		9EA5A4032227492E002A7AB5 /* Sounds */ = {
@@ -300,7 +289,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EA5A3FF22272425002A7AB5 /* CGPoint.swift in Sources */,
 				9E441D81222712690024AE9B /* GameScene.swift in Sources */,
 				9E441D83222712690024AE9B /* GameViewController.swift in Sources */,
 				9E441D7B222712690024AE9B /* AppDelegate.swift in Sources */,

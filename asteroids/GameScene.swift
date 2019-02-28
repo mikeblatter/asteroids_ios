@@ -10,10 +10,8 @@ import SpriteKit
 import GameplayKit
 
 let degreesToRadians = CGFloat.pi / 180
-let radiansToDegrees = 180 / CGFloat.pi
 
 class GameScene: SKScene {
-    private var deadCenter: CGPoint? = nil
     private var lastUpdateTime : TimeInterval = 0
     
     // Node Textures (images to set to nodes)
@@ -28,22 +26,23 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     
     override func sceneDidLoad() {
-        if let scene = self.scene {
-            // Get the center of the game screen
-            let sceneFrame = scene.frame
-            deadCenter = CGPoint(x: sceneFrame.width/2, y: sceneFrame.height/2)
-            
-            player = self.childNode(withName: "//Player") as? SKSpriteNode
-            player!.texture = self.playerTexture
-        }
+        // Get player and set image
+        player = self.childNode(withName: "//Player") as? SKSpriteNode
+        player!.texture = self.playerTexture
 
         self.lastUpdateTime = 0
     }
     
     func touchDown(atPoint position:CGPoint) {
-        if let deadCenter = self.deadCenter {
-            //let playerRotateAction = SKAction.rotate(byAngle: angleFromCenter, duration: 1)
-            //self.player?.run(playerRotateAction)
+        if let player = self.player {
+            let deltaX = player.position.x - position.x
+            let deltaY = player.position.y - position.y
+            
+            let angle = atan2(deltaY, deltaX)
+            let rotation = angle + 90 * degreesToRadians
+            
+            let playerRotateAction = SKAction.rotate(toAngle: rotation, duration: 0.1, shortestUnitArc: true)
+            self.player?.run(playerRotateAction)
         }
     }
     
