@@ -37,10 +37,9 @@ class GameScene: SKScene {
     }
     
     func touchDown(atPoint position:CGPoint) {
+        player.rotate(to: position)
+        
         if let playerSpriteNode = player.spriteNode, let direction = player.direction(to: position) {
-            let playerRotateAction = SKAction.rotate(toAngle: direction, duration: 0.1, shortestUnitArc: true)
-            playerSpriteNode.run(playerRotateAction)
-            
             let missile = SKSpriteNode(imageNamed: "PlayerMissile")
             missile.position = playerSpriteNode.position
             missile.zRotation = direction

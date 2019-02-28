@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class Asteroid: Sprite {
+struct Asteroid: Sprite {
     internal let size = CGSize(width: 10, height: 10)
     internal var spriteNode: SKSpriteNode?
     internal let texture = SKTexture(imageNamed: "Asteroid")
