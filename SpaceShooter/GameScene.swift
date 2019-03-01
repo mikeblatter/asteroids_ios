@@ -9,11 +9,14 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SpriteLocation {
     private var lastUpdateTime : TimeInterval = 0
 
     // Sprites
     private let player = Player(position: CGPoint(x: 0, y: 0))
+    
+    // Asteroids
+    private var asteroids: [Asteroid] = []
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -22,9 +25,6 @@ class GameScene: SKScene {
         self.lastUpdateTime = 0
         
         player.add(to: self)
-        
-        let asteroid = Asteroid(position: CGPoint(x: 0, y: 100))
-        asteroid.add(to: self)
     }
     
     func touchDown(atPoint position:CGPoint) {
@@ -63,12 +63,25 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        
+        while asteroids.count < 5 {
+            if let startPoint = randomPointOutsideBounds(), let endPoint = randomPointOutsideBounds() {
+                let asteroid = Asteroid(position: startPoint)
+                asteroid.add(to: self)
+                
+                asteroids.append(asteroid)
+                
+                let asteroidMoveAction = SKAction.move(to: endPoint, duration: 5)
+                
+                let actionMoveDone = SKAction.removeFromParent()
+                asteroid.spriteNode.run(SKAction.sequence([asteroidMoveAction, actionMoveDone]))
+            }
+        }
+
         // Initialize _lastUpdateTime if it has not already been
         if (self.lastUpdateTime == 0) {
             self.lastUpdateTime = currentTime
         }
-        
+
         // Calculate time since last update
         let dt = currentTime - self.lastUpdateTime
         

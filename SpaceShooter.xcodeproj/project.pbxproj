@@ -22,6 +22,7 @@
 		9ECFC86E22289B3800372B2A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFC86D22289B3800372B2A /* Player.swift */; };
 		9ECFC87022289BEF00372B2A /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFC86F22289BEF00372B2A /* Sprite.swift */; };
 		9ECFC8722228A7C000372B2A /* PlayerMissile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFC8712228A7C000372B2A /* PlayerMissile.swift */; };
+		9ECFC8742229F11300372B2A /* SpriteLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFC8732229F11300372B2A /* SpriteLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		9ECFC86D22289B3800372B2A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		9ECFC86F22289BEF00372B2A /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		9ECFC8712228A7C000372B2A /* PlayerMissile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMissile.swift; sourceTree = "<group>"; };
+		9ECFC8732229F11300372B2A /* SpriteLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,15 +117,15 @@
 		9E441D79222712690024AE9B /* SpaceShooter */ = {
 			isa = PBXGroup;
 			children = (
+				9EA5A4032227492E002A7AB5 /* Assets */,
 				9ECFC86622288E7300372B2A /* Sprites */,
-				9EA5A4032227492E002A7AB5 /* Sounds */,
 				9E441D7A222712690024AE9B /* AppDelegate.swift */,
 				9E441D7C222712690024AE9B /* GameScene.sks */,
 				9E441D7E222712690024AE9B /* Actions.sks */,
+				9ECFC8732229F11300372B2A /* SpriteLocation.swift */,
 				9E441D80222712690024AE9B /* GameScene.swift */,
 				9E441D82222712690024AE9B /* GameViewController.swift */,
 				9E441D84222712690024AE9B /* Main.storyboard */,
-				9E441D872227126B0024AE9B /* Assets.xcassets */,
 				9E441D892227126B0024AE9B /* LaunchScreen.storyboard */,
 				9E441D8C2227126B0024AE9B /* Info.plist */,
 			);
@@ -146,14 +148,15 @@
 			path = SpaceShooterUITests;
 			sourceTree = "<group>";
 		};
-		9EA5A4032227492E002A7AB5 /* Sounds */ = {
+		9EA5A4032227492E002A7AB5 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				9E441D872227126B0024AE9B /* Assets.xcassets */,
 				9EA5A4042227492E002A7AB5 /* Collision.wav */,
 				9EA5A4052227492E002A7AB5 /* Shoot.wav */,
 				9EA5A4062227492E002A7AB5 /* Hit.wav */,
 			);
-			path = Sounds;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		9ECFC86622288E7300372B2A /* Sprites */ = {
@@ -307,6 +310,7 @@
 				9ECFC86E22289B3800372B2A /* Player.swift in Sources */,
 				9ECFC8722228A7C000372B2A /* PlayerMissile.swift in Sources */,
 				9E441D81222712690024AE9B /* GameScene.swift in Sources */,
+				9ECFC8742229F11300372B2A /* SpriteLocation.swift in Sources */,
 				9E441D83222712690024AE9B /* GameViewController.swift in Sources */,
 				9ECFC87022289BEF00372B2A /* Sprite.swift in Sources */,
 				9E441D7B222712690024AE9B /* AppDelegate.swift in Sources */,
