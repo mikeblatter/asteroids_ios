@@ -70,7 +70,6 @@ class GameScene: SKScene, SpriteLocation {
                 
                 asteroids.append(asteroid)
                 
-                
                 let asteroidMoveAction = SKAction.move(to: endPoint, duration: 5)
                 
                 let removeAsteroidFromList = SKAction.run {

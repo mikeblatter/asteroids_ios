@@ -28,6 +28,4 @@ extension SpriteLocation {
         
         return nil
     }
-    
-    
 }
