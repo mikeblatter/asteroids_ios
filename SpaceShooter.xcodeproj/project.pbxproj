@@ -42,7 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9E441D77222712690024AE9B /* spaceshooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spaceshooter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E441D77222712690024AE9B /* SpaceShooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceShooter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E441D7A222712690024AE9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E441D7C222712690024AE9B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		9E441D7E222712690024AE9B /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -52,9 +52,9 @@
 		9E441D872227126B0024AE9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E441D8A2227126B0024AE9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E441D8C2227126B0024AE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9E441D912227126B0024AE9B /* spaceshooterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spaceshooterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E441D912227126B0024AE9B /* SpaceShooterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceShooterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E441D972227126B0024AE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9E441D9C2227126B0024AE9B /* spaceshooterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spaceshooterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E441D9C2227126B0024AE9B /* SpaceShooterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceShooterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E441DA22227126B0024AE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EA5A4002227417B002A7AB5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9EA5A4042227492E002A7AB5 /* Collision.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Collision.wav; sourceTree = "<group>"; };
@@ -105,9 +105,9 @@
 		9E441D78222712690024AE9B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9E441D77222712690024AE9B /* spaceshooter.app */,
-				9E441D912227126B0024AE9B /* spaceshooterTests.xctest */,
-				9E441D9C2227126B0024AE9B /* spaceshooterUITests.xctest */,
+				9E441D77222712690024AE9B /* SpaceShooter.app */,
+				9E441D912227126B0024AE9B /* SpaceShooterTests.xctest */,
+				9E441D9C2227126B0024AE9B /* SpaceShooterUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,9 +170,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9E441D76222712690024AE9B /* spaceshooter */ = {
+		9E441D76222712690024AE9B /* SpaceShooter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9E441DA52227126B0024AE9B /* Build configuration list for PBXNativeTarget "spaceshooter" */;
+			buildConfigurationList = 9E441DA52227126B0024AE9B /* Build configuration list for PBXNativeTarget "SpaceShooter" */;
 			buildPhases = (
 				9E441D73222712690024AE9B /* Sources */,
 				9E441D74222712690024AE9B /* Frameworks */,
@@ -182,14 +182,14 @@
 			);
 			dependencies = (
 			);
-			name = spaceshooter;
+			name = SpaceShooter;
 			productName = asteroids;
-			productReference = 9E441D77222712690024AE9B /* spaceshooter.app */;
+			productReference = 9E441D77222712690024AE9B /* SpaceShooter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9E441D902227126B0024AE9B /* spaceshooterTests */ = {
+		9E441D902227126B0024AE9B /* SpaceShooterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9E441DA82227126B0024AE9B /* Build configuration list for PBXNativeTarget "spaceshooterTests" */;
+			buildConfigurationList = 9E441DA82227126B0024AE9B /* Build configuration list for PBXNativeTarget "SpaceShooterTests" */;
 			buildPhases = (
 				9E441D8D2227126B0024AE9B /* Sources */,
 				9E441D8E2227126B0024AE9B /* Frameworks */,
@@ -200,14 +200,14 @@
 			dependencies = (
 				9E441D932227126B0024AE9B /* PBXTargetDependency */,
 			);
-			name = spaceshooterTests;
+			name = SpaceShooterTests;
 			productName = asteroidsTests;
-			productReference = 9E441D912227126B0024AE9B /* spaceshooterTests.xctest */;
+			productReference = 9E441D912227126B0024AE9B /* SpaceShooterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9E441D9B2227126B0024AE9B /* spaceshooterUITests */ = {
+		9E441D9B2227126B0024AE9B /* SpaceShooterUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9E441DAB2227126B0024AE9B /* Build configuration list for PBXNativeTarget "spaceshooterUITests" */;
+			buildConfigurationList = 9E441DAB2227126B0024AE9B /* Build configuration list for PBXNativeTarget "SpaceShooterUITests" */;
 			buildPhases = (
 				9E441D982227126B0024AE9B /* Sources */,
 				9E441D992227126B0024AE9B /* Frameworks */,
@@ -218,9 +218,9 @@
 			dependencies = (
 				9E441D9E2227126B0024AE9B /* PBXTargetDependency */,
 			);
-			name = spaceshooterUITests;
+			name = SpaceShooterUITests;
 			productName = asteroidsUITests;
-			productReference = 9E441D9C2227126B0024AE9B /* spaceshooterUITests.xctest */;
+			productReference = 9E441D9C2227126B0024AE9B /* SpaceShooterUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -259,9 +259,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9E441D76222712690024AE9B /* spaceshooter */,
-				9E441D902227126B0024AE9B /* spaceshooterTests */,
-				9E441D9B2227126B0024AE9B /* spaceshooterUITests */,
+				9E441D76222712690024AE9B /* SpaceShooter */,
+				9E441D902227126B0024AE9B /* SpaceShooterTests */,
+				9E441D9B2227126B0024AE9B /* SpaceShooterUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -332,12 +332,12 @@
 /* Begin PBXTargetDependency section */
 		9E441D932227126B0024AE9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9E441D76222712690024AE9B /* spaceshooter */;
+			target = 9E441D76222712690024AE9B /* SpaceShooter */;
 			targetProxy = 9E441D922227126B0024AE9B /* PBXContainerItemProxy */;
 		};
 		9E441D9E2227126B0024AE9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9E441D76222712690024AE9B /* spaceshooter */;
+			target = 9E441D76222712690024AE9B /* SpaceShooter */;
 			targetProxy = 9E441D9D2227126B0024AE9B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -484,7 +484,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q7V238254G;
-				INFOPLIST_FILE = asteroids/Info.plist;
+				INFOPLIST_FILE = SpaceShooter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,7 +502,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q7V238254G;
-				INFOPLIST_FILE = asteroids/Info.plist;
+				INFOPLIST_FILE = SpaceShooter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -521,13 +521,13 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q7V238254G;
-				INFOPLIST_FILE = asteroidsTests/Info.plist;
+				INFOPLIST_FILE = SpaceShooterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blatter.asteroidsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blatter.SpaceShooterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -542,13 +542,13 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q7V238254G;
-				INFOPLIST_FILE = asteroidsTests/Info.plist;
+				INFOPLIST_FILE = SpaceShooterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blatter.asteroidsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blatter.SpaceShooterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -562,17 +562,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q7V238254G;
-				INFOPLIST_FILE = asteroidsUITests/Info.plist;
+				INFOPLIST_FILE = SpaceShooterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blatter.asteroidsUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blatter.SpaceShooterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = asteroids;
+				TEST_TARGET_NAME = SpaceShooter;
 			};
 			name = Debug;
 		};
@@ -582,17 +582,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q7V238254G;
-				INFOPLIST_FILE = asteroidsUITests/Info.plist;
+				INFOPLIST_FILE = SpaceShooterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blatter.asteroidsUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blatter.SpaceShooterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = asteroids;
+				TEST_TARGET_NAME = SpaceShooter;
 			};
 			name = Release;
 		};
@@ -608,7 +608,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9E441DA52227126B0024AE9B /* Build configuration list for PBXNativeTarget "spaceshooter" */ = {
+		9E441DA52227126B0024AE9B /* Build configuration list for PBXNativeTarget "SpaceShooter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9E441DA62227126B0024AE9B /* Debug */,
@@ -617,7 +617,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9E441DA82227126B0024AE9B /* Build configuration list for PBXNativeTarget "spaceshooterTests" */ = {
+		9E441DA82227126B0024AE9B /* Build configuration list for PBXNativeTarget "SpaceShooterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9E441DA92227126B0024AE9B /* Debug */,
@@ -626,7 +626,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9E441DAB2227126B0024AE9B /* Build configuration list for PBXNativeTarget "spaceshooterUITests" */ = {
+		9E441DAB2227126B0024AE9B /* Build configuration list for PBXNativeTarget "SpaceShooterUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9E441DAC2227126B0024AE9B /* Debug */,
