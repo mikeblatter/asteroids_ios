@@ -11,16 +11,11 @@ import SpriteKit
 let degreesToRadians = CGFloat.pi / 180
 
 protocol Sprite {
-    var size: CGSize { get }
     var spriteNode: SKSpriteNode { get }
     var texture: SKTexture { get }
 }
 
-extension Sprite {
-    internal func create() -> SKSpriteNode {
-        return SKSpriteNode(texture: texture, size: size)
-    }
-    
+extension Sprite {    
     public func delta(to otherPosition: CGPoint) -> CGPoint {
         return CGPoint(x: spriteNode.position.x - otherPosition.x, y: spriteNode.position.y - otherPosition.y)
     }

@@ -9,14 +9,13 @@
 import SpriteKit
 
 struct Player: Sprite {    
-    internal let size = CGSize(width: 20, height: 20)
     internal var spriteNode: SKSpriteNode
     internal let texture = SKTexture(imageNamed: "Player")
     
     let shootSound = SKAction.playSoundFileNamed("Shoot.wav", waitForCompletion: false)
     
     public init(position: CGPoint) {
-        spriteNode = SKSpriteNode(texture: texture, size: size)
+        spriteNode = SKSpriteNode(texture: texture)
         spriteNode.position = position
     }
     
