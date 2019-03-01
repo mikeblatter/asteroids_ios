@@ -23,6 +23,7 @@
 		9ECFC86822288E8500372B2A /* Asteroid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFC86722288E8500372B2A /* Asteroid.swift */; };
 		9ECFC86E22289B3800372B2A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFC86D22289B3800372B2A /* Player.swift */; };
 		9ECFC87022289BEF00372B2A /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFC86F22289BEF00372B2A /* Sprite.swift */; };
+		9ECFC8722228A7C000372B2A /* PlayerMissile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFC8712228A7C000372B2A /* PlayerMissile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		9ECFC86722288E8500372B2A /* Asteroid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asteroid.swift; sourceTree = "<group>"; };
 		9ECFC86D22289B3800372B2A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		9ECFC86F22289BEF00372B2A /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
+		9ECFC8712228A7C000372B2A /* PlayerMissile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMissile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,9 +165,10 @@
 		9ECFC86622288E7300372B2A /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				9ECFC86F22289BEF00372B2A /* Sprite.swift */,
 				9ECFC86722288E8500372B2A /* Asteroid.swift */,
 				9ECFC86D22289B3800372B2A /* Player.swift */,
-				9ECFC86F22289BEF00372B2A /* Sprite.swift */,
+				9ECFC8712228A7C000372B2A /* PlayerMissile.swift */,
 			);
 			path = Sprites;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			files = (
 				9ECFC86822288E8500372B2A /* Asteroid.swift in Sources */,
 				9ECFC86E22289B3800372B2A /* Player.swift in Sources */,
+				9ECFC8722228A7C000372B2A /* PlayerMissile.swift in Sources */,
 				9E441D81222712690024AE9B /* GameScene.swift in Sources */,
 				9E441D83222712690024AE9B /* GameViewController.swift in Sources */,
 				9ECFC87022289BEF00372B2A /* Sprite.swift in Sources */,

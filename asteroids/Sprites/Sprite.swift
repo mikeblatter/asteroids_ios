@@ -12,7 +12,7 @@ let degreesToRadians = CGFloat.pi / 180
 
 protocol Sprite {
     var size: CGSize { get }
-    var spriteNode: SKSpriteNode? { get set }
+    var spriteNode: SKSpriteNode { get }
     var texture: SKTexture { get }
 }
 
@@ -21,21 +21,18 @@ extension Sprite {
         return SKSpriteNode(texture: texture, size: size)
     }
     
-    public func direction(to possibleOtherPosition: CGPoint?) -> CGFloat? {
-        if let spritePosition = spriteNode?.position, let otherPosition = possibleOtherPosition {
-            let deltaX = spritePosition.x - otherPosition.x
-            let deltaY = spritePosition.y - otherPosition.y
-            
-            let angle = atan2(deltaY, deltaX)
-            return angle + 90 * degreesToRadians
-        }
+    public func delta(to otherPosition: CGPoint) -> CGPoint {
+        return CGPoint(x: spriteNode.position.x - otherPosition.x, y: spriteNode.position.y - otherPosition.y)
+    }
+    
+    public func direction(to possibleOtherPosition: CGPoint) -> CGFloat {
+        let delta = self.delta(to: possibleOtherPosition)
+        let angle = atan2(delta.y, delta.x)
         
-        return nil
+        return angle + 90 * degreesToRadians
     }
     
     public func add(to scene: SKScene) {
-        if let spriteNode = self.spriteNode {
-            scene.addChild(spriteNode)
-        }
+        scene.addChild(spriteNode)
     }
 }

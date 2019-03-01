@@ -30,7 +30,7 @@ class GameViewController: UIViewController {
                 sceneNode.scaleMode = .aspectFill
                 
                 // Present the scene
-                if let view = self.sceneView as! SKView? {
+                if let view = self.sceneView {
                     view.presentScene(sceneNode)
                     
                     view.ignoresSiblingOrder = true

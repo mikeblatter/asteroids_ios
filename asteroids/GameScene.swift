@@ -11,22 +11,13 @@ import GameplayKit
 
 class GameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0
-    
-    // Node Textures (images to set to nodes)
-    private let playerMissleTexture = SKTexture(imageNamed: "PlayerMissle")
-    
+
     // Sprites
     private let player = Player(position: CGPoint(x: 0, y: 0))
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
-    
-    // Constants
-    let playerMissileSpeed: CGFloat = 300.0
-    
-    // Sounds
-    let shootSound = SKAction.playSoundFileNamed("Shoot.wav", waitForCompletion: false)
-    
+
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
         
@@ -39,24 +30,11 @@ class GameScene: SKScene {
     func touchDown(atPoint position:CGPoint) {
         player.rotate(to: position)
         
-        if let playerSpriteNode = player.spriteNode, let direction = player.direction(to: position) {
-            let missile = SKSpriteNode(imageNamed: "PlayerMissile")
-            missile.position = playerSpriteNode.position
-            missile.zRotation = direction
-            
-            addChild(missile)
-            
-            let endPositionX = missile.position.x + 100 * -10 // TODO 100 to deltaX
-            let endPositionY = missile.position.y + 100 * -10 // TODO 100 to deltaY
-            let endPosition = CGPoint(x: endPositionX, y: endPositionY)
-            
-            let missileMoveAction = SKAction.move(to: endPosition, duration: 1)
-            
-            let actionMoveDone = SKAction.removeFromParent()
-            missile.run(SKAction.sequence([missileMoveAction, actionMoveDone]))
-            
-            run(shootSound)
-        }
+        let missile = player.createMissile()
+        missile.add(to: self)
+        
+        // Shoot Missile
+        player.shoot(missile: missile, to: position)
     }
     
     func touchMoved(toPoint pos : CGPoint) {
