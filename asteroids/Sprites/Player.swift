@@ -25,15 +25,17 @@ struct Player: Sprite {
     }
     
     public func createMissile() -> PlayerMissile {
-        let missile = PlayerMissile(position: self.spriteNode.position, zRotation: self.spriteNode.zRotation)
+        let missile = PlayerMissile(position: self.spriteNode.position)
         return missile
     }
     
     public func shoot(missile: PlayerMissile, to position: CGPoint) {
+        missile.spriteNode.zRotation = self.direction(to: position)
+        
         let delta = self.delta(to: position)
         
-        let endPositionX = missile.spriteNode.position.x + delta.x * -10 // TODO 100 to deltaX
-        let endPositionY = missile.spriteNode.position.y + delta.y * -10 // TODO 100 to deltaY
+        let endPositionX = missile.spriteNode.position.x + delta.x * -10
+        let endPositionY = missile.spriteNode.position.y + delta.y * -10
         let endPosition = CGPoint(x: endPositionX, y: endPositionY)
         
         let missileMoveAction = SKAction.move(to: endPosition, duration: 1)

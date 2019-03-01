@@ -12,9 +12,8 @@ struct PlayerMissile: Sprite {
     internal var spriteNode: SKSpriteNode
     internal let texture = SKTexture(imageNamed: "PlayerMissile")
     
-    public init(position: CGPoint, zRotation: CGFloat) {
+    public init(position: CGPoint) {
         spriteNode = SKSpriteNode(texture: texture)
         spriteNode.position = position
-        spriteNode.zRotation = zRotation
     }
 }
