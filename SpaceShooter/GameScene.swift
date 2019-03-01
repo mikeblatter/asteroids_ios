@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene, SpriteLocation {
+class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
     private var lastUpdateTime : TimeInterval = 0
 
     // Sprites
@@ -23,8 +23,20 @@ class GameScene: SKScene, SpriteLocation {
 
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
-        
+    }
+    
+    override func didMove(to view: SKView) {
         player.add(to: self)
+        
+        let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+        borderBody.friction = 0
+        self.physicsBody = borderBody
+        
+        physicsWorld.contactDelegate = self
+    }
+
+    func didBegin(_ contact: SKPhysicsContact) {
+        print("Collision")
     }
     
     func touchDown(atPoint position:CGPoint) {
@@ -64,13 +76,14 @@ class GameScene: SKScene, SpriteLocation {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         while asteroids.count < 5 {
-            if let startPoint = randomPointOutsideBounds(), let endPoint = randomPointOutsideBounds() {
+            if let startPoint = randomPointOutsideBounds() {
                 let asteroid = Asteroid(position: startPoint)
                 asteroid.add(to: self)
                 
                 asteroids.append(asteroid)
+                asteroid.spriteNode.physicsBody!.applyImpulse(CGVector(dx: CGFloat.random(in: -2...2), dy: CGFloat.random(in: -2...2)))
                 
-                let asteroidMoveAction = SKAction.move(to: endPoint, duration: 5)
+                /* let asteroidMoveAction = SKAction.move(to: endPoint, duration: 5)
                 
                 let removeAsteroidFromList = SKAction.run {
                     if let asteroidIndex = self.asteroids.firstIndex(where: { $0 == asteroid }) {
@@ -79,7 +92,7 @@ class GameScene: SKScene, SpriteLocation {
                 }
                 
                 let actionMoveDone = SKAction.removeFromParent()
-                asteroid.spriteNode.run(SKAction.sequence([asteroidMoveAction, actionMoveDone, removeAsteroidFromList]))
+                asteroid.spriteNode.run(SKAction.sequence([asteroidMoveAction, actionMoveDone, removeAsteroidFromList]))*/
             }
         }
 

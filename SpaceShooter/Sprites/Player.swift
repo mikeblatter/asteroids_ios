@@ -17,6 +17,7 @@ struct Player: Sprite {
     public init(position: CGPoint) {
         spriteNode = SKSpriteNode(texture: texture)
         spriteNode.position = position
+        spriteNode.physicsBody = SKPhysicsBody(circleOfRadius: max(spriteNode.size.width / 2,spriteNode.size.height / 2))
     }
     
     public func rotate(to position: CGPoint) {
