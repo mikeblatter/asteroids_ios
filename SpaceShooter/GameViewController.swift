@@ -1,6 +1,6 @@
 //
 //  GameViewController.swift
-//  asteroids
+//  SpaceShooter
 //
 //  Created by Michael Blatter on 2/27/19.
 //  Copyright © 2019 blatter. All rights reserved.

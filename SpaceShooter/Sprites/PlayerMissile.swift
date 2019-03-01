@@ -1,6 +1,6 @@
 //
 //  PlayerMissile.swift
-//  asteroids
+//  SpaceShooter
 //
 //  Created by Michael Blatter on 2/28/19.
 //  Copyright © 2019 blatter. All rights reserved.

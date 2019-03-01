@@ -15,8 +15,6 @@
 		9E441D86222712690024AE9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E441D84222712690024AE9B /* Main.storyboard */; };
 		9E441D882227126B0024AE9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E441D872227126B0024AE9B /* Assets.xcassets */; };
 		9E441D8B2227126B0024AE9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E441D892227126B0024AE9B /* LaunchScreen.storyboard */; };
-		9E441D962227126B0024AE9B /* asteroidsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E441D952227126B0024AE9B /* asteroidsTests.swift */; };
-		9E441DA12227126B0024AE9B /* asteroidsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E441DA02227126B0024AE9B /* asteroidsUITests.swift */; };
 		9EA5A4072227492E002A7AB5 /* Collision.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5A4042227492E002A7AB5 /* Collision.wav */; };
 		9EA5A4082227492E002A7AB5 /* Shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5A4052227492E002A7AB5 /* Shoot.wav */; };
 		9EA5A4092227492E002A7AB5 /* Hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5A4062227492E002A7AB5 /* Hit.wav */; };
@@ -44,7 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9E441D77222712690024AE9B /* asteroids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = asteroids.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E441D77222712690024AE9B /* spaceshooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spaceshooter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E441D7A222712690024AE9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E441D7C222712690024AE9B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		9E441D7E222712690024AE9B /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -54,11 +52,9 @@
 		9E441D872227126B0024AE9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E441D8A2227126B0024AE9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E441D8C2227126B0024AE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9E441D912227126B0024AE9B /* asteroidsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = asteroidsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E441D952227126B0024AE9B /* asteroidsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asteroidsTests.swift; sourceTree = "<group>"; };
+		9E441D912227126B0024AE9B /* spaceshooterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spaceshooterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E441D972227126B0024AE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9E441D9C2227126B0024AE9B /* asteroidsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = asteroidsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E441DA02227126B0024AE9B /* asteroidsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asteroidsUITests.swift; sourceTree = "<group>"; };
+		9E441D9C2227126B0024AE9B /* spaceshooterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spaceshooterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E441DA22227126B0024AE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EA5A4002227417B002A7AB5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9EA5A4042227492E002A7AB5 /* Collision.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Collision.wav; sourceTree = "<group>"; };
@@ -99,9 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				9EA5A4002227417B002A7AB5 /* README.md */,
-				9E441D79222712690024AE9B /* asteroids */,
-				9E441D942227126B0024AE9B /* asteroidsTests */,
-				9E441D9F2227126B0024AE9B /* asteroidsUITests */,
+				9E441D79222712690024AE9B /* SpaceShooter */,
+				9E441D942227126B0024AE9B /* SpaceShooterTests */,
+				9E441D9F2227126B0024AE9B /* SpaceShooterUITests */,
 				9E441D78222712690024AE9B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,14 +105,14 @@
 		9E441D78222712690024AE9B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9E441D77222712690024AE9B /* asteroids.app */,
-				9E441D912227126B0024AE9B /* asteroidsTests.xctest */,
-				9E441D9C2227126B0024AE9B /* asteroidsUITests.xctest */,
+				9E441D77222712690024AE9B /* spaceshooter.app */,
+				9E441D912227126B0024AE9B /* spaceshooterTests.xctest */,
+				9E441D9C2227126B0024AE9B /* spaceshooterUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9E441D79222712690024AE9B /* asteroids */ = {
+		9E441D79222712690024AE9B /* SpaceShooter */ = {
 			isa = PBXGroup;
 			children = (
 				9ECFC86622288E7300372B2A /* Sprites */,
@@ -131,25 +127,23 @@
 				9E441D892227126B0024AE9B /* LaunchScreen.storyboard */,
 				9E441D8C2227126B0024AE9B /* Info.plist */,
 			);
-			path = asteroids;
+			path = SpaceShooter;
 			sourceTree = "<group>";
 		};
-		9E441D942227126B0024AE9B /* asteroidsTests */ = {
+		9E441D942227126B0024AE9B /* SpaceShooterTests */ = {
 			isa = PBXGroup;
 			children = (
-				9E441D952227126B0024AE9B /* asteroidsTests.swift */,
 				9E441D972227126B0024AE9B /* Info.plist */,
 			);
-			path = asteroidsTests;
+			path = SpaceShooterTests;
 			sourceTree = "<group>";
 		};
-		9E441D9F2227126B0024AE9B /* asteroidsUITests */ = {
+		9E441D9F2227126B0024AE9B /* SpaceShooterUITests */ = {
 			isa = PBXGroup;
 			children = (
-				9E441DA02227126B0024AE9B /* asteroidsUITests.swift */,
 				9E441DA22227126B0024AE9B /* Info.plist */,
 			);
-			path = asteroidsUITests;
+			path = SpaceShooterUITests;
 			sourceTree = "<group>";
 		};
 		9EA5A4032227492E002A7AB5 /* Sounds */ = {
@@ -176,9 +170,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9E441D76222712690024AE9B /* asteroids */ = {
+		9E441D76222712690024AE9B /* spaceshooter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9E441DA52227126B0024AE9B /* Build configuration list for PBXNativeTarget "asteroids" */;
+			buildConfigurationList = 9E441DA52227126B0024AE9B /* Build configuration list for PBXNativeTarget "spaceshooter" */;
 			buildPhases = (
 				9E441D73222712690024AE9B /* Sources */,
 				9E441D74222712690024AE9B /* Frameworks */,
@@ -188,14 +182,14 @@
 			);
 			dependencies = (
 			);
-			name = asteroids;
+			name = spaceshooter;
 			productName = asteroids;
-			productReference = 9E441D77222712690024AE9B /* asteroids.app */;
+			productReference = 9E441D77222712690024AE9B /* spaceshooter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9E441D902227126B0024AE9B /* asteroidsTests */ = {
+		9E441D902227126B0024AE9B /* spaceshooterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9E441DA82227126B0024AE9B /* Build configuration list for PBXNativeTarget "asteroidsTests" */;
+			buildConfigurationList = 9E441DA82227126B0024AE9B /* Build configuration list for PBXNativeTarget "spaceshooterTests" */;
 			buildPhases = (
 				9E441D8D2227126B0024AE9B /* Sources */,
 				9E441D8E2227126B0024AE9B /* Frameworks */,
@@ -206,14 +200,14 @@
 			dependencies = (
 				9E441D932227126B0024AE9B /* PBXTargetDependency */,
 			);
-			name = asteroidsTests;
+			name = spaceshooterTests;
 			productName = asteroidsTests;
-			productReference = 9E441D912227126B0024AE9B /* asteroidsTests.xctest */;
+			productReference = 9E441D912227126B0024AE9B /* spaceshooterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9E441D9B2227126B0024AE9B /* asteroidsUITests */ = {
+		9E441D9B2227126B0024AE9B /* spaceshooterUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9E441DAB2227126B0024AE9B /* Build configuration list for PBXNativeTarget "asteroidsUITests" */;
+			buildConfigurationList = 9E441DAB2227126B0024AE9B /* Build configuration list for PBXNativeTarget "spaceshooterUITests" */;
 			buildPhases = (
 				9E441D982227126B0024AE9B /* Sources */,
 				9E441D992227126B0024AE9B /* Frameworks */,
@@ -224,9 +218,9 @@
 			dependencies = (
 				9E441D9E2227126B0024AE9B /* PBXTargetDependency */,
 			);
-			name = asteroidsUITests;
+			name = spaceshooterUITests;
 			productName = asteroidsUITests;
-			productReference = 9E441D9C2227126B0024AE9B /* asteroidsUITests.xctest */;
+			productReference = 9E441D9C2227126B0024AE9B /* spaceshooterUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -252,7 +246,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9E441D72222712690024AE9B /* Build configuration list for PBXProject "asteroids" */;
+			buildConfigurationList = 9E441D72222712690024AE9B /* Build configuration list for PBXProject "SpaceShooter" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -265,9 +259,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9E441D76222712690024AE9B /* asteroids */,
-				9E441D902227126B0024AE9B /* asteroidsTests */,
-				9E441D9B2227126B0024AE9B /* asteroidsUITests */,
+				9E441D76222712690024AE9B /* spaceshooter */,
+				9E441D902227126B0024AE9B /* spaceshooterTests */,
+				9E441D9B2227126B0024AE9B /* spaceshooterUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -323,7 +317,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E441D962227126B0024AE9B /* asteroidsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +324,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E441DA12227126B0024AE9B /* asteroidsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,12 +332,12 @@
 /* Begin PBXTargetDependency section */
 		9E441D932227126B0024AE9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9E441D76222712690024AE9B /* asteroids */;
+			target = 9E441D76222712690024AE9B /* spaceshooter */;
 			targetProxy = 9E441D922227126B0024AE9B /* PBXContainerItemProxy */;
 		};
 		9E441D9E2227126B0024AE9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9E441D76222712690024AE9B /* asteroids */;
+			target = 9E441D76222712690024AE9B /* spaceshooter */;
 			targetProxy = 9E441D9D2227126B0024AE9B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -497,7 +489,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blatter.asteroids;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blatter.spaceshooter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -515,7 +507,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blatter.asteroids;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blatter.spaceshooter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -539,7 +531,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/asteroids.app/asteroids";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaceShooter.temp_caseinsensitive_rename.app/SpaceShooter.temp_caseinsensitive_rename";
 			};
 			name = Debug;
 		};
@@ -560,7 +552,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/asteroids.app/asteroids";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaceShooter.temp_caseinsensitive_rename.app/SpaceShooter.temp_caseinsensitive_rename";
 			};
 			name = Release;
 		};
@@ -607,7 +599,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9E441D72222712690024AE9B /* Build configuration list for PBXProject "asteroids" */ = {
+		9E441D72222712690024AE9B /* Build configuration list for PBXProject "SpaceShooter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9E441DA32227126B0024AE9B /* Debug */,
@@ -616,7 +608,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9E441DA52227126B0024AE9B /* Build configuration list for PBXNativeTarget "asteroids" */ = {
+		9E441DA52227126B0024AE9B /* Build configuration list for PBXNativeTarget "spaceshooter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9E441DA62227126B0024AE9B /* Debug */,
@@ -625,7 +617,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9E441DA82227126B0024AE9B /* Build configuration list for PBXNativeTarget "asteroidsTests" */ = {
+		9E441DA82227126B0024AE9B /* Build configuration list for PBXNativeTarget "spaceshooterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9E441DA92227126B0024AE9B /* Debug */,
@@ -634,7 +626,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9E441DAB2227126B0024AE9B /* Build configuration list for PBXNativeTarget "asteroidsUITests" */ = {
+		9E441DAB2227126B0024AE9B /* Build configuration list for PBXNativeTarget "spaceshooterUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9E441DAC2227126B0024AE9B /* Debug */,
