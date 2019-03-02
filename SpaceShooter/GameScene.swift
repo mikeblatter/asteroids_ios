@@ -47,11 +47,6 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         if let scene = self.scene, let spriteNodeA = contact.bodyA.node, let spriteNodeB = contact.bodyB.node {
             if let nameA = spriteNodeA.name, let nameB = spriteNodeB.name {
-                /*let asteroidCollision: Bool = (asteroids.keys.contains(nameA) || asteroids.keys.contains(nameB)) ? true: false
-                let playerCollision = (nameA == player.name || nameB == player.name) ? true: false
-                let playerMissileCollision = (playerMissiles.keys.contains(nameA) || playerMissiles.keys.contains(nameB)) ? true: false
-                let sceneCollision = (nameA == scene.name || nameB == scene.name) ? true : false*/
-                
                 let asteroidA = asteroids.keys.contains(nameA) ? true : false
                 let asteroidB = asteroids.keys.contains(nameB) ? true : false
                 
@@ -65,24 +60,40 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
                 let gameSceneB = (scene.name == nameB) ? true : false
             
                 if (playerMissileA || playerMissileB) && (gameSceneA || gameSceneB) {
-                    // Player missile hit edge of screen going to remove
+                    // Player missile hit edge of screen, remove
                     let playerMissileName = (playerMissileA) ? nameA : nameB
                     playerMissiles[playerMissileName]?.spriteNode.removeFromParent()
                     playerMissiles[playerMissileName] = nil
                 }
+                
+                if (asteroidA || asteroidB) && (gameSceneA || gameSceneB) {
+                    // Asteroid hit edge of screen, remove
+                    let asteroidName = (asteroidA) ? nameA : nameB
+                    asteroids[asteroidName]?.spriteNode.removeFromParent()
+                    asteroids[asteroidName] = nil
+                }
+                
+                if (asteroidA || asteroidB) && (playerA || playerB) {
+                    // Asteroid hit player, loses life
+                    let asteroidName = (asteroidA) ? nameA : nameB
+                    asteroids[asteroidName]?.spriteNode.removeFromParent()
+                    asteroids[asteroidName] = nil
+                    
+                    player.spriteNode.removeFromParent()
+                }
+                
+                if (asteroidA || asteroidB) && (playerMissileA || playerMissileB) {
+                    // Player Missile hit Asteroid, destory both
+                    let playerMissileName = (playerMissileA) ? nameA : nameB
+                    playerMissiles[playerMissileName]?.spriteNode.removeFromParent()
+                    playerMissiles[playerMissileName] = nil
+                    
+                    let asteroidName = (asteroidA) ? nameA : nameB
+                    asteroids[asteroidName]?.spriteNode.removeFromParent()
+                    asteroids[asteroidName] = nil
+                }
             }
-            
-            
-            
-            
-            print(spriteNodeA)
-            print(spriteNodeB)
         }
-        
-        
-        
-        
-        print("Collision")
     }
     
     func touchDown(atPoint position:CGPoint) {
@@ -123,24 +134,13 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        while asteroids.count < 5 {
+        while asteroids.count < 10 {
             if let startPoint = randomPointOutsideBounds() {
                 let asteroid = Asteroid(position: startPoint)
                 asteroid.add(to: self)
                 
                 asteroids[asteroid.name] = asteroid
-                asteroid.spriteNode.physicsBody?.applyImpulse(CGVector(dx: CGFloat.random(in: -10...10), dy: CGFloat.random(in: -10...10)))
-                
-                /* let asteroidMoveAction = SKAction.move(to: endPoint, duration: 5)
-                
-                let removeAsteroidFromList = SKAction.run {
-                    if let asteroidIndex = self.asteroids.firstIndex(where: { $0 == asteroid }) {
-                        self.asteroids.remove(at: asteroidIndex)
-                    }
-                }
-                
-                let actionMoveDone = SKAction.removeFromParent()
-                asteroid.spriteNode.run(SKAction.sequence([asteroidMoveAction, actionMoveDone, removeAsteroidFromList]))*/
+                asteroid.spriteNode.physicsBody?.applyImpulse(CGVector(dx: CGFloat.random(in: -20...20), dy: CGFloat.random(in: -20...20)))
             }
         }
 
