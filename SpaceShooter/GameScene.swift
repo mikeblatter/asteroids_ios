@@ -12,17 +12,21 @@ import GameplayKit
 class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
     private var lastUpdateTime : TimeInterval = 0
 
-    // Sprites
+    // Player
+    
     private let player = Player(position: CGPoint(x: 0, y: 0))
+    private var playerMissiles: [String: PlayerMissile] = [:]
     
     // Asteroids
-    private var asteroids: [Asteroid] = []
-    
+    private var asteroids: [String: Asteroid] = [:]
+
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
 
     override func sceneDidLoad() {
-        self.lastUpdateTime = 0
+        lastUpdateTime = 0
+        
+        scene?.name = UUID().uuidString
     }
     
     override func didMove(to view: SKView) {
@@ -41,7 +45,36 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
     }
 
     func didBegin(_ contact: SKPhysicsContact) {
-        if let spriteNodeA = contact.bodyA.node, let spriteNodeB = contact.bodyB.node {
+        if let scene = self.scene, let spriteNodeA = contact.bodyA.node, let spriteNodeB = contact.bodyB.node {
+            if let nameA = spriteNodeA.name, let nameB = spriteNodeB.name {
+                /*let asteroidCollision: Bool = (asteroids.keys.contains(nameA) || asteroids.keys.contains(nameB)) ? true: false
+                let playerCollision = (nameA == player.name || nameB == player.name) ? true: false
+                let playerMissileCollision = (playerMissiles.keys.contains(nameA) || playerMissiles.keys.contains(nameB)) ? true: false
+                let sceneCollision = (nameA == scene.name || nameB == scene.name) ? true : false*/
+                
+                let asteroidA = asteroids.keys.contains(nameA) ? true : false
+                let asteroidB = asteroids.keys.contains(nameB) ? true : false
+                
+                let playerA = (player.name == nameA) ? true : false
+                let playerB = (player.name == nameB) ? true : false
+                
+                let playerMissileA = playerMissiles.keys.contains(nameA) ? true : false
+                let playerMissileB = playerMissiles.keys.contains(nameB) ? true : false
+                
+                let gameSceneA = (scene.name == nameA) ? true : false
+                let gameSceneB = (scene.name == nameB) ? true : false
+            
+                if (playerMissileA || playerMissileB) && (gameSceneA || gameSceneB) {
+                    // Player missile hit edge of screen going to remove
+                    let playerMissileName = (playerMissileA) ? nameA : nameB
+                    playerMissiles[playerMissileName]?.spriteNode.removeFromParent()
+                    playerMissiles[playerMissileName] = nil
+                }
+            }
+            
+            
+            
+            
             print(spriteNodeA)
             print(spriteNodeB)
         }
@@ -56,6 +89,8 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
         player.rotate(to: position)
         
         let missile = player.createMissile()
+        playerMissiles[missile.name] = missile
+        
         missile.add(to: self)
         
         // Shoot Missile
@@ -93,7 +128,7 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
                 let asteroid = Asteroid(position: startPoint)
                 asteroid.add(to: self)
                 
-                asteroids.append(asteroid)
+                asteroids[asteroid.name] = asteroid
                 asteroid.spriteNode.physicsBody?.applyImpulse(CGVector(dx: CGFloat.random(in: -10...10), dy: CGFloat.random(in: -10...10)))
                 
                 /* let asteroidMoveAction = SKAction.move(to: endPoint, duration: 5)

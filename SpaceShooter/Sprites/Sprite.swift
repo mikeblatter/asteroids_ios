@@ -11,6 +11,8 @@ import SpriteKit
 let degreesToRadians = CGFloat.pi / 180
 
 protocol Sprite {
+    var name: String { get }
+    
     var spriteNode: SKSpriteNode { get }
     var texture: SKTexture { get }
 }

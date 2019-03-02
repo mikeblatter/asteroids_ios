@@ -9,12 +9,15 @@
 import SpriteKit
 
 struct PlayerMissile: Sprite {
+    public let name = UUID().uuidString
+    
     internal var spriteNode: SKSpriteNode
     internal let texture = SKTexture(imageNamed: "PlayerMissile")
     
     public init(position: CGPoint) {
         spriteNode = SKSpriteNode(texture: texture)
         spriteNode.position = position
+        spriteNode.name = name
         
         spriteNode.physicsBody = SKPhysicsBody(circleOfRadius: max(spriteNode.size.width / 2,spriteNode.size.height / 2))
         spriteNode.physicsBody?.affectedByGravity = false
