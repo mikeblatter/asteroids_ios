@@ -41,6 +41,14 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
     }
 
     func didBegin(_ contact: SKPhysicsContact) {
+        if let spriteNodeA = contact.bodyA.node, let spriteNodeB = contact.bodyB.node {
+            print(spriteNodeA)
+            print(spriteNodeB)
+        }
+        
+        
+        
+        
         print("Collision")
     }
     
