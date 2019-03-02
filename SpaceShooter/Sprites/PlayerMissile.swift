@@ -15,5 +15,10 @@ struct PlayerMissile: Sprite {
     public init(position: CGPoint) {
         spriteNode = SKSpriteNode(texture: texture)
         spriteNode.position = position
+        
+        spriteNode.physicsBody = SKPhysicsBody(circleOfRadius: max(spriteNode.size.width / 2,spriteNode.size.height / 2))
+        spriteNode.physicsBody?.affectedByGravity = false
+        spriteNode.physicsBody?.allowsRotation = false
+        spriteNode.physicsBody?.contactTestBitMask = 0x00000001
     }
 }

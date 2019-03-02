@@ -28,10 +28,15 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         player.add(to: self)
         
-        let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
-        borderBody.friction = 0
-        self.physicsBody = borderBody
+        let physicsFrame = CGRect(x: self.frame.minX - 100, y: self.frame.minY - 100, width: self.frame.width + 200, height: self.frame.height + 200)
         
+        let borderBody = SKPhysicsBody(edgeLoopFrom: physicsFrame)
+        
+        borderBody.friction = 0
+        borderBody.affectedByGravity = false
+        
+        self.physicsBody = borderBody
+        physicsBody?.contactTestBitMask = 0x00000001
         physicsWorld.contactDelegate = self
     }
 
@@ -81,7 +86,7 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
                 asteroid.add(to: self)
                 
                 asteroids.append(asteroid)
-                asteroid.spriteNode.physicsBody!.applyImpulse(CGVector(dx: CGFloat.random(in: -2...2), dy: CGFloat.random(in: -2...2)))
+                asteroid.spriteNode.physicsBody?.applyImpulse(CGVector(dx: CGFloat.random(in: -10...10), dy: CGFloat.random(in: -10...10)))
                 
                 /* let asteroidMoveAction = SKAction.move(to: endPoint, duration: 5)
                 

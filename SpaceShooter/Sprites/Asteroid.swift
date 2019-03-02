@@ -16,6 +16,9 @@ struct Asteroid: Equatable, Sprite {
     public init(position: CGPoint) {
         spriteNode = SKSpriteNode(texture: texture, size: size)
         spriteNode.position = position
+        
         spriteNode.physicsBody = SKPhysicsBody(circleOfRadius: max(size.width / 2, size.height / 2))
+        spriteNode.physicsBody?.affectedByGravity = false
+        spriteNode.physicsBody?.contactTestBitMask = 0x00000001
     }
 }

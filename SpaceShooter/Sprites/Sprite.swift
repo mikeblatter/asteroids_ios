@@ -16,13 +16,13 @@ protocol Sprite {
 }
 
 extension Sprite {    
-    public func delta(to otherPosition: CGPoint) -> CGPoint {
-        return CGPoint(x: spriteNode.position.x - otherPosition.x, y: spriteNode.position.y - otherPosition.y)
+    public func delta(to otherPosition: CGPoint) -> CGVector {
+        return CGVector(dx: spriteNode.position.x - otherPosition.x, dy: spriteNode.position.y - otherPosition.y)
     }
     
     public func direction(to possibleOtherPosition: CGPoint) -> CGFloat {
         let delta = self.delta(to: possibleOtherPosition)
-        let angle = atan2(delta.y, delta.x)
+        let angle = atan2(delta.dy, delta.dx)
         
         return angle + 90 * degreesToRadians
     }
