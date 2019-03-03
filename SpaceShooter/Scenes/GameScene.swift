@@ -53,18 +53,18 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
             for node in nodes {
                 if let name = node.name {
                     if let asteroid = asteroids[name] {
-                       // sprites.append(asteroid)
+                       sprites.insert(asteroid)
                     }
                     else if let playerMissile = playerMissiles[name] {
-                       // sprites.append(playerMissile)
+                       sprites.insert(playerMissile)
                     }
                     else if player.name == name {
-                      //  sprites.append(player)
+                       sprites.insert(player)
                     }
                 }
             }
             
-            //collision(between: sprites)
+            collision(between: sprites)
             
             /*if let nameA = spriteNodeA.name, let nameB = spriteNodeB.name {
                 let asteroidA = asteroids.keys.contains(nameA) ? true : false
@@ -116,16 +116,23 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
         }
     }
 
-    /*func collision(between sprites: Set<Sprite>) {
-        switch sprites {
-        case [.up, .down]:
-            //image = UIImage(named: "road-vertical")
-        case [.left, .right]:
-            //image = UIImage(named: "road-horizontal")
+    func collision(between sprites: Set<Sprite>) {
+        /*switch sprites {
+        case [Asteroid, Asteroid]:
+            for sprite in sprites {
+                sprite.spriteNode.removeFromParent()
+                asteroids[sprite.name] = nil
+            }
+        case [Player, Asteroid]:
+            for sprite in sprites where sprite.type == Asteroid {
+                sprite.spriteNode.removeFromParent()
+                asteroids[sprite.name] = nil
+            }
         default:
+            break
             //image = UIImage(named: "road")
-        }
-    }*/
+        }*/
+    }
     
     func touchDown(atPoint position:CGPoint) {
         player.rotate(to: position)
