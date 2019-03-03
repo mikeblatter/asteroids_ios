@@ -118,12 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				9EA5A4032227492E002A7AB5 /* Assets */,
+				9ECFC875222C448300372B2A /* Scenes */,
 				9ECFC86622288E7300372B2A /* Sprites */,
 				9E441D7A222712690024AE9B /* AppDelegate.swift */,
-				9E441D7C222712690024AE9B /* GameScene.sks */,
-				9E441D7E222712690024AE9B /* Actions.sks */,
-				9ECFC8732229F11300372B2A /* SpriteLocation.swift */,
-				9E441D80222712690024AE9B /* GameScene.swift */,
 				9E441D82222712690024AE9B /* GameViewController.swift */,
 				9E441D84222712690024AE9B /* Main.storyboard */,
 				9E441D892227126B0024AE9B /* LaunchScreen.storyboard */,
@@ -168,6 +165,17 @@
 				9ECFC8712228A7C000372B2A /* PlayerMissile.swift */,
 			);
 			path = Sprites;
+			sourceTree = "<group>";
+		};
+		9ECFC875222C448300372B2A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9E441D7C222712690024AE9B /* GameScene.sks */,
+				9E441D7E222712690024AE9B /* Actions.sks */,
+				9ECFC8732229F11300372B2A /* SpriteLocation.swift */,
+				9E441D80222712690024AE9B /* GameScene.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
