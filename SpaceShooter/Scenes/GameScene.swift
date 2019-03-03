@@ -15,16 +15,11 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
     var physicsFrame: CGRect? = nil
     public static let categoryBitMask = UInt32(8)
     
-    // Player
+    // Sprites
     
+    private var asteroids: [String: Asteroid] = [:]
     private var player = Player(position: CGPoint(x: 0, y: 0))
     private var playerMissiles: [String: PlayerMissile] = [:]
-    
-    // Asteroids
-    private var asteroids: [String: Asteroid] = [:]
-
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
 
     override func sceneDidLoad() {
         lastUpdateTime = 0
@@ -52,7 +47,26 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
 
     func didBegin(_ contact: SKPhysicsContact) {
         if let scene = self.scene, let spriteNodeA = contact.bodyA.node, let spriteNodeB = contact.bodyB.node {
-            if let nameA = spriteNodeA.name, let nameB = spriteNodeB.name {
+            let nodes = [spriteNodeA, spriteNodeB]
+            var sprites: Set<Sprite> = []
+            
+            for node in nodes {
+                if let name = node.name {
+                    if let asteroid = asteroids[name] {
+                       // sprites.append(asteroid)
+                    }
+                    else if let playerMissile = playerMissiles[name] {
+                       // sprites.append(playerMissile)
+                    }
+                    else if player.name == name {
+                      //  sprites.append(player)
+                    }
+                }
+            }
+            
+            //collision(between: sprites)
+            
+            /*if let nameA = spriteNodeA.name, let nameB = spriteNodeB.name {
                 let asteroidA = asteroids.keys.contains(nameA) ? true : false
                 let asteroidB = asteroids.keys.contains(nameB) ? true : false
                 
@@ -98,9 +112,20 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
                     asteroids[asteroidName]?.spriteNode.removeFromParent()
                     asteroids[asteroidName] = nil
                 }
-            }
+            }*/
         }
     }
+
+    /*func collision(between sprites: Set<Sprite>) {
+        switch sprites {
+        case [.up, .down]:
+            //image = UIImage(named: "road-vertical")
+        case [.left, .right]:
+            //image = UIImage(named: "road-horizontal")
+        default:
+            //image = UIImage(named: "road")
+        }
+    }*/
     
     func touchDown(atPoint position:CGPoint) {
         player.rotate(to: position)
@@ -157,12 +182,7 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
         }
 
         // Calculate time since last update
-        let dt = currentTime - self.lastUpdateTime
-        
-        // Update entities
-        for entity in self.entities {
-            entity.update(deltaTime: dt)
-        }
+        //let dt = currentTime - self.lastUpdateTime
         
         self.lastUpdateTime = currentTime
     }

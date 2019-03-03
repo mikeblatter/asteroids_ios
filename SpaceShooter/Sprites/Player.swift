@@ -8,23 +8,18 @@
 
 import SpriteKit
 
-struct Player: Sprite {
-    public let name = UUID().uuidString
+class Player: Sprite {
     public static let categoryBitMask = UInt32(4)
-    
-    var angle: CGFloat = 0
-    var previousAngle: CGFloat = 0
-    
-    internal var spriteNode: SKSpriteNode
+
     internal let texture = SKTexture(imageNamed: "Player")
     
-    let shootSound = SKAction.playSoundFileNamed("Shoot.wav", waitForCompletion: false)
+    internal let shootSound = SKAction.playSoundFileNamed("Shoot.wav", waitForCompletion: false)
     
     public init(position: CGPoint) {
-        spriteNode = SKSpriteNode(texture: texture)
-        spriteNode.name = name
-        spriteNode.position = position
+        super.init(spriteNode: SKSpriteNode(texture: texture))
         
+        spriteNode.position = position
+
         spriteNode.physicsBody = SKPhysicsBody(circleOfRadius: max(spriteNode.size.width / 2,spriteNode.size.height / 2))
         spriteNode.physicsBody?.affectedByGravity = false
         spriteNode.physicsBody?.isDynamic = false
@@ -35,7 +30,7 @@ struct Player: Sprite {
         spriteNode.physicsBody?.collisionBitMask = Asteroid.categoryBitMask
     }
     
-    public mutating func rotate(to position: CGPoint) {
+    public func rotate(to position: CGPoint) {
         let rotateAction = SKAction.rotate(toAngle: direction(to: position), duration: 0.1, shortestUnitArc: true)
         spriteNode.run(rotateAction)
     }
@@ -46,7 +41,7 @@ struct Player: Sprite {
         return missile
     }
     
-    public mutating func shoot(missile: PlayerMissile, to position: CGPoint) {
+    public func shoot(missile: PlayerMissile, to position: CGPoint) {
         let direction = self.direction(to: position)
         missile.spriteNode.zRotation = direction
         

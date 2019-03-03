@@ -10,33 +10,29 @@ import SpriteKit
 
 let degreesToRadians = CGFloat.pi / 180
 
-enum SpriteBitMask {
-    case asteroid
-    case gameScene
-    case player
-    case playerMissile
-}
-
-protocol Sprite {
-    var angle: CGFloat { get set }
-    var previousAngle: CGFloat { get set }
+class Sprite: Hashable {
+    public let name = UUID().uuidString
+    public let spriteNode: SKSpriteNode
     
-    var name: String { get }
+    public var angle: CGFloat = 0
+    public var previousAngle: CGFloat = 0
     
-    var spriteNode: SKSpriteNode { get }
-    var texture: SKTexture { get }
-}
-
-extension Sprite {    
+    public init(spriteNode: SKSpriteNode) {
+        self.spriteNode = spriteNode
+        
+        // Set unique name to sprite node
+        self.spriteNode.name = name
+    }
+    
     public func delta(to otherPosition: CGPoint) -> CGVector {
         return CGVector(dx: spriteNode.position.x + otherPosition.x, dy: spriteNode.position.y + otherPosition.y)
     }
     
-    public mutating func direction(to possibleOtherPosition: CGPoint) -> CGFloat {
+    public func direction(to possibleOtherPosition: CGPoint) -> CGFloat {
         let rotationBlendFactor: CGFloat = 0.2
         
         let delta = self.delta(to: possibleOtherPosition)
-
+        
         angle = atan2(delta.dy, delta.dx)
         
         // did angle flip from +π to -π, or -π to +π?
@@ -55,5 +51,15 @@ extension Sprite {
     
     public func add(to scene: SKScene) {
         scene.addChild(spriteNode)
+    }
+
+    // MARK: Hashable + Equatable
+    
+    public var hashValue: Int {
+        return name.hashValue
+    }
+    
+    static func == (lhs: Sprite, rhs: Sprite) -> Bool {
+        return lhs.name == rhs.name
     }
 }

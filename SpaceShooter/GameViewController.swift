@@ -30,8 +30,7 @@ class GameViewController: UIViewController {
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! GameScene? {
                 // Copy gameplay related content over to the scene
-                sceneNode.entities = scene.entities
-                sceneNode.graphs = scene.graphs
+                // TODO: see if need to add anything here, maybe on orientation change?
                 
                 // Set the scale mode to scale to fit the window
                 sceneNode.scaleMode = .aspectFill

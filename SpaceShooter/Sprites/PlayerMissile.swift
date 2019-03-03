@@ -8,18 +8,13 @@
 
 import SpriteKit
 
-struct PlayerMissile: Sprite {
-    public let name = UUID().uuidString
+class PlayerMissile: Sprite {
     public static let categoryBitMask = UInt32(2)
-    
-    var angle: CGFloat = 0
-    var previousAngle: CGFloat = 0
-    
-    internal var spriteNode: SKSpriteNode
+
     internal let texture = SKTexture(imageNamed: "PlayerMissile")
     
     public init(position: CGPoint) {
-        spriteNode = SKSpriteNode(texture: texture)
+        super.init(spriteNode: SKSpriteNode(texture: texture))
         spriteNode.position = position
         spriteNode.name = name
         
