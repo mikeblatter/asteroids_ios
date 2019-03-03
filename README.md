@@ -12,3 +12,4 @@ Wanted to make a simple game in iOS to see how it works and to get some pracice 
 - https://math.stackexchange.com/questions/22689/getting-the-third-point-from-two-points-on-one-line
 - Trying to figure out a way to detect collisions efficently https://www.raywenderlich.com/1161-how-to-make-a-breakout-game-with-spritekit-and-swift-part-1
 - https://developer.apple.com/documentation/spritekit/sknode/getting_started_with_physics_bodies
+- Bitmasking https://stackoverflow.com/questions/40332418/stop-objects-from-colliding-using-spritekit

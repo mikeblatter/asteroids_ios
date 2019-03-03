@@ -10,6 +10,10 @@ import SpriteKit
 
 struct Player: Sprite {
     public let name = UUID().uuidString
+    public static let categoryBitMask = UInt32(4)
+    
+    var angle: CGFloat = 0
+    var previousAngle: CGFloat = 0
     
     internal var spriteNode: SKSpriteNode
     internal let texture = SKTexture(imageNamed: "Player")
@@ -23,28 +27,33 @@ struct Player: Sprite {
         
         spriteNode.physicsBody = SKPhysicsBody(circleOfRadius: max(spriteNode.size.width / 2,spriteNode.size.height / 2))
         spriteNode.physicsBody?.affectedByGravity = false
-        spriteNode.physicsBody?.contactTestBitMask = 0x00000001
         spriteNode.physicsBody?.isDynamic = false
         spriteNode.physicsBody?.pinned = true
+        
+        spriteNode.physicsBody?.categoryBitMask = Player.categoryBitMask
+        spriteNode.physicsBody?.contactTestBitMask = Asteroid.categoryBitMask
+        spriteNode.physicsBody?.collisionBitMask = Asteroid.categoryBitMask
     }
     
-    public func rotate(to position: CGPoint) {
+    public mutating func rotate(to position: CGPoint) {
         let rotateAction = SKAction.rotate(toAngle: direction(to: position), duration: 0.1, shortestUnitArc: true)
         spriteNode.run(rotateAction)
     }
     
     public func createMissile() -> PlayerMissile {
-        let missile = PlayerMissile(position: self.spriteNode.position)
+        let newPosition = CGPoint(x: spriteNode.position.x, y: spriteNode.position.y)
+        let missile = PlayerMissile(position: newPosition)
         return missile
     }
     
-    public func shoot(missile: PlayerMissile, to position: CGPoint) {
-        missile.spriteNode.zRotation = self.direction(to: position)
-
+    public mutating func shoot(missile: PlayerMissile, to position: CGPoint) {
+        let direction = self.direction(to: position)
+        missile.spriteNode.zRotation = direction
+        
         let delta = self.delta(to: position)
-        let force = CGVector(dx: -delta.dx * 1.5, dy: -delta.dy * 1.5)
-        missile.spriteNode.physicsBody?.applyForce(force)
+        let force = CGVector(dx: delta.dx, dy: delta.dy)
 
+        missile.spriteNode.physicsBody?.applyForce(force)
         spriteNode.run(shootSound)
     }
 }

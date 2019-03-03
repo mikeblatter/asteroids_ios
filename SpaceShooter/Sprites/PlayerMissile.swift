@@ -10,6 +10,10 @@ import SpriteKit
 
 struct PlayerMissile: Sprite {
     public let name = UUID().uuidString
+    public static let categoryBitMask = UInt32(2)
+    
+    var angle: CGFloat = 0
+    var previousAngle: CGFloat = 0
     
     internal var spriteNode: SKSpriteNode
     internal let texture = SKTexture(imageNamed: "PlayerMissile")
@@ -22,6 +26,9 @@ struct PlayerMissile: Sprite {
         spriteNode.physicsBody = SKPhysicsBody(circleOfRadius: max(spriteNode.size.width / 2,spriteNode.size.height / 2))
         spriteNode.physicsBody?.affectedByGravity = false
         spriteNode.physicsBody?.allowsRotation = false
-        spriteNode.physicsBody?.contactTestBitMask = 0x00000001
+        
+        spriteNode.physicsBody?.categoryBitMask = PlayerMissile.categoryBitMask
+        spriteNode.physicsBody?.contactTestBitMask = Asteroid.categoryBitMask | GameScene.categoryBitMask
+        spriteNode.physicsBody?.collisionBitMask = Asteroid.categoryBitMask | GameScene.categoryBitMask
     }
 }

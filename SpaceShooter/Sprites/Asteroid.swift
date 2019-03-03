@@ -10,6 +10,10 @@ import SpriteKit
 
 struct Asteroid: Equatable, Sprite {
     public let name = UUID().uuidString
+    public static let categoryBitMask = UInt32(1)
+    
+    var angle: CGFloat = 0
+    var previousAngle: CGFloat = 0
     
     internal let size = CGSize(width: 100, height: 100)
     internal let spriteNode: SKSpriteNode
@@ -22,6 +26,8 @@ struct Asteroid: Equatable, Sprite {
         
         spriteNode.physicsBody = SKPhysicsBody(circleOfRadius: max(size.width / 2, size.height / 2))
         spriteNode.physicsBody?.affectedByGravity = false
-        spriteNode.physicsBody?.contactTestBitMask = 0x00000001
+        
+        spriteNode.physicsBody?.categoryBitMask = Asteroid.categoryBitMask
+        spriteNode.physicsBody?.contactTestBitMask = PlayerMissile.categoryBitMask | GameScene.categoryBitMask | Asteroid.categoryBitMask
     }
 }

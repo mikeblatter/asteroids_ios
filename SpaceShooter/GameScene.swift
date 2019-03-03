@@ -13,10 +13,11 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
     private var lastUpdateTime : TimeInterval = 0
 
     var physicsFrame: CGRect? = nil
+    public static let categoryBitMask = UInt32(8)
     
     // Player
     
-    private let player = Player(position: CGPoint(x: 0, y: 0))
+    private var player = Player(position: CGPoint(x: 0, y: 0))
     private var playerMissiles: [String: PlayerMissile] = [:]
     
     // Asteroids
@@ -42,7 +43,10 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
         borderBody.affectedByGravity = false
         
         self.physicsBody = borderBody
-        physicsBody?.contactTestBitMask = 0x00000001
+        
+        physicsBody?.categoryBitMask = GameScene.categoryBitMask
+        physicsBody?.contactTestBitMask = PlayerMissile.categoryBitMask | Asteroid.categoryBitMask
+        
         physicsWorld.contactDelegate = self
     }
 
