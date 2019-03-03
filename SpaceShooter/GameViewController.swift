@@ -13,6 +13,13 @@ import GameplayKit
 class GameViewController: UIViewController {
     @IBOutlet weak var sceneView: SKView!
     
+    @IBOutlet weak var livesLabel: UILabel!
+    @IBOutlet weak var pointsLabel: UILabel!
+    
+    @IBAction func exitAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
