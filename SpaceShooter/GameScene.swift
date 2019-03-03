@@ -12,6 +12,8 @@ import GameplayKit
 class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
     private var lastUpdateTime : TimeInterval = 0
 
+    var physicsFrame: CGRect? = nil
+    
     // Player
     
     private let player = Player(position: CGPoint(x: 0, y: 0))
@@ -32,9 +34,9 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         player.add(to: self)
         
-        let physicsFrame = CGRect(x: self.frame.minX - 100, y: self.frame.minY - 100, width: self.frame.width + 200, height: self.frame.height + 200)
+        physicsFrame = CGRect(x: self.frame.minX - 100, y: self.frame.minY - 100, width: self.frame.width + 200, height: self.frame.height + 200)
         
-        let borderBody = SKPhysicsBody(edgeLoopFrom: physicsFrame)
+        let borderBody = SKPhysicsBody(edgeLoopFrom: physicsFrame!)
         
         borderBody.friction = 0
         borderBody.affectedByGravity = false
@@ -79,7 +81,7 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
                     asteroids[asteroidName]?.spriteNode.removeFromParent()
                     asteroids[asteroidName] = nil
                     
-                    player.spriteNode.removeFromParent()
+                    //player.spriteNode.removeFromParent()
                 }
                 
                 if (asteroidA || asteroidB) && (playerMissileA || playerMissileB) {
@@ -135,7 +137,7 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         while asteroids.count < 10 {
-            if let startPoint = randomPointOutsideBounds() {
+            if let startPoint = randomPointOutsideScreen() {
                 let asteroid = Asteroid(position: startPoint)
                 asteroid.add(to: self)
                 

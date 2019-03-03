@@ -10,15 +10,16 @@ import SpriteKit
 
 protocol SpriteLocation {
     var view: SKView? { get }
+    var physicsFrame: CGRect? { get }
 }
 
 extension SpriteLocation {
-    public func randomPointOutsideBounds() -> CGPoint? {
-        if let view = self.view {
-            let leftEdgeRandom = CGFloat.random(in: view.bounds.minX - 200...view.bounds.minX)
-            let topEdgeRandom = CGFloat.random(in: view.bounds.minY - 200...view.bounds.minY)
-            let rightEdgeRandom = CGFloat.random(in: view.bounds.maxX...view.bounds.maxX + 200)
-            let bottomEdgeRandom = CGFloat.random(in: view.bounds.maxY...view.bounds.maxY + 200)
+    public func randomPointOutsideScreen() -> CGPoint? {
+        if let physicsFrame = self.physicsFrame, let view = self.view {
+            let leftEdgeRandom = CGFloat.random(in: physicsFrame.minX...view.bounds.minX)
+            let topEdgeRandom = CGFloat.random(in: physicsFrame.minY...view.bounds.minY)
+            let rightEdgeRandom = CGFloat.random(in: view.bounds.maxX...physicsFrame.maxX)
+            let bottomEdgeRandom = CGFloat.random(in: view.bounds.maxY...physicsFrame.maxY)
             
             let newX = (Bool.random()) ? leftEdgeRandom : rightEdgeRandom
             let newY = (Bool.random()) ? topEdgeRandom : bottomEdgeRandom
