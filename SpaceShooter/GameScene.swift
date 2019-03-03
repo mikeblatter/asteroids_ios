@@ -137,12 +137,13 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         while asteroids.count < 10 {
-            if let startPoint = randomPointOutsideScreen() {
+            if let startPoint = randomPointOutsideScreen(), let endPoint = randomPointOutsideScreen() {
                 let asteroid = Asteroid(position: startPoint)
                 asteroid.add(to: self)
                 
                 asteroids[asteroid.name] = asteroid
-                asteroid.spriteNode.physicsBody?.applyImpulse(CGVector(dx: CGFloat.random(in: -20...20), dy: CGFloat.random(in: -20...20)))
+                let vector = asteroid.delta(to: endPoint)
+                asteroid.spriteNode.physicsBody?.applyForce(CGVector(dx: vector.dx * 10, dy: vector.dy * 10), at: endPoint)
             }
         }
 
