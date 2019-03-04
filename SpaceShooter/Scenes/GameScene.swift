@@ -12,12 +12,13 @@ import GameplayKit
 class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate, CollisionIdentification {
     public var gameInformationDelegate: GameInformationDelegate? = nil
     
-    let enlargePhysicsFrameBy: CGFloat = 200
-    
     private var lives = 3
     private var points = 0
     
     private var lastUpdateTime : TimeInterval = 0
+    
+    // SpriteLocation
+    let enlargePhysicsFrameBy: CGFloat = 200
     
     // CollisionIdentification
     public let uniqueName = UUID().uuidString
@@ -25,7 +26,6 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate, CollisionIde
     public static let categoryBitMask = UInt32(8)
     
     // Sprites
-    
     private var asteroids: [String: Asteroid] = [:]
     private var player = Player(position: CGPoint(x: 0, y: 0))
     private var playerMissiles: [String: PlayerMissile] = [:]
@@ -183,13 +183,13 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate, CollisionIde
         }
 
         // Initialize _lastUpdateTime if it has not already been
-        if (self.lastUpdateTime == 0) {
-            self.lastUpdateTime = currentTime
+        if (lastUpdateTime == 0) {
+            lastUpdateTime = currentTime
         }
 
         // Calculate time since last update
         //let dt = currentTime - self.lastUpdateTime
         
-        self.lastUpdateTime = currentTime
+        lastUpdateTime = currentTime
     }
 }

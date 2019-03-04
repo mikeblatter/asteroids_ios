@@ -231,6 +231,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="jN9-YW-CZj"/>
         <segue reference="9gz-TD-VJn"/>
     </inferredMetricsTieBreakers>
 </document>

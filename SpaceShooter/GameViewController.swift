@@ -24,7 +24,7 @@ class GameViewController: UIViewController, GameInformationDelegate {
     @IBOutlet weak var pointsLabel: UILabel!
     
     @IBAction func exitAction(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "GameGameOverSegue", sender: self)
     }
     
     private var points: Int = 0
