@@ -8,12 +8,29 @@
 
 import SpriteKit
 
-protocol SpriteLocation {
+protocol ScenePhysics {
+    var frame: CGRect { get }
     var view: SKView? { get }
     var enlargePhysicsFrameBy: CGFloat { get }
 }
 
-extension SpriteLocation {
+extension ScenePhysics {
+    var physicsFrame: CGRect {
+        return CGRect(x: frame.minX - enlargePhysicsFrameBy,
+                      y: frame.minY - enlargePhysicsFrameBy,
+                      width: frame.width + enlargePhysicsFrameBy * 2,
+                      height: frame.height + enlargePhysicsFrameBy * 2)
+    }
+    
+    public func createPhysicsBody() -> SKPhysicsBody {
+        let borderBody = SKPhysicsBody(edgeLoopFrom: physicsFrame)
+        
+        borderBody.friction = 0
+        borderBody.affectedByGravity = false
+        
+        return borderBody
+    }
+    
     public func randomPointOutsideScreen() -> CGPoint? {
         if let view = self.view {
             let topFrameEdge = view.frame.maxY

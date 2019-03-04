@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate, CollisionIdentification {
+class GameScene: SKScene, ScenePhysics, SKPhysicsContactDelegate, CollisionIdentification {
     public var gameInformationDelegate: GameInformationDelegate? = nil
     
     private var lives = 3
@@ -38,15 +38,8 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate, CollisionIde
     
     override func didMove(to view: SKView) {
         player.add(to: self)
-        
-        let physicsFrame = CGRect(x: frame.minX - enlargePhysicsFrameBy, y: frame.minY - enlargePhysicsFrameBy, width: frame.width + enlargePhysicsFrameBy * 2, height: frame.height + enlargePhysicsFrameBy * 2)
-        
-        let borderBody = SKPhysicsBody(edgeLoopFrom: physicsFrame)
-        
-        borderBody.friction = 0
-        borderBody.affectedByGravity = false
-        
-        self.physicsBody = borderBody
+
+        self.physicsBody = createPhysicsBody()
         
         physicsBody?.categoryBitMask = GameScene.categoryBitMask
         physicsBody?.contactTestBitMask = PlayerMissile.categoryBitMask | Asteroid.categoryBitMask
