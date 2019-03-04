@@ -1,6 +1,6 @@
 # Space Shooter iOS Swift MVP/Practice
 
-Wanted to make a simple game in iOS to see how it works and to get some pracice in Swift.
+Wanted to make a simple game in iOS to see how SpriteKit works and to get some pracice in Swift.
 
 ## Code/Research Used
 
