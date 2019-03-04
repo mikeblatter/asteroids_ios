@@ -10,15 +10,13 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate, CollisionIdentification {
-    public let uniqueName = UUID().uuidString
     
     private var lastUpdateTime : TimeInterval = 0
+    internal var physicsFrame: CGRect? = nil
     
-    // CollisionIdentification protocol
+    // CollisionIdentification
+    public let uniqueName = UUID().uuidString
     public let collisionType = CollisionType.background
-
-    // Physics
-    var physicsFrame: CGRect? = nil
     public static let categoryBitMask = UInt32(8)
     
     // Sprites
