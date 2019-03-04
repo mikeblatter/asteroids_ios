@@ -24,5 +24,6 @@ class Asteroid: Sprite {
         
         spriteNode.physicsBody?.categoryBitMask = Asteroid.categoryBitMask
         spriteNode.physicsBody?.contactTestBitMask = PlayerMissile.categoryBitMask | GameScene.categoryBitMask | Asteroid.categoryBitMask
+        spriteNode.physicsBody?.mass = 100
     }
 }

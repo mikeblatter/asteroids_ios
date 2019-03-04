@@ -10,7 +10,14 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController {
+protocol GameInformationDelegate {
+    func update(lives: Int)
+    func update(points: Int)
+    
+    func gameOver(points: Int)
+}
+
+class GameViewController: UIViewController, GameInformationDelegate {
     @IBOutlet weak var sceneView: SKView!
     
     @IBOutlet weak var livesLabel: UILabel!
@@ -19,6 +26,8 @@ class GameViewController: UIViewController {
     @IBAction func exitAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    private var points: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +39,8 @@ class GameViewController: UIViewController {
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! GameScene? {
                 // Copy gameplay related content over to the scene
+                sceneNode.gameInformationDelegate = self
+                
                 // TODO: see if need to add anything here, maybe on orientation change?
                 
                 // Set the scale mode to scale to fit the window
@@ -46,6 +57,27 @@ class GameViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GameGameOverSegue" {
+            if let controller = segue.destination as? GameOverViewController {
+                controller.set(points: points)
+            }
+        }
+    }
+    
+    func update(lives: Int) {
+        livesLabel.text = "Lives: \(lives)"
+    }
+    
+    func update(points: Int) {
+        self.points = points
+        pointsLabel.text = "Points: \(points)"
+    }
+    
+    func gameOver(points: Int) {
+        performSegue(withIdentifier: "GameGameOverSegue", sender: self)
     }
 
     override var shouldAutorotate: Bool {

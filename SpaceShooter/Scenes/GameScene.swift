@@ -10,6 +10,10 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate, CollisionIdentification {
+    public var gameInformationDelegate: GameInformationDelegate? = nil
+    
+    private var lives = 3
+    private var points = 0
     
     private var lastUpdateTime : TimeInterval = 0
     internal var physicsFrame: CGRect? = nil
@@ -79,15 +83,18 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate, CollisionIde
         let spriteTypes: Set<CollisionType> = Set(sprites.map { $0.collisionType })
         
         switch spriteTypes {
-        case [.asteroid, .asteroid]:
-            for sprite in sprites {
-                scene?.childNode(withName: sprite.uniqueName)?.removeFromParent()
-                asteroids[sprite.uniqueName] = nil
-            }
         case [.asteroid, .player]:
             for sprite in sprites where sprite.collisionType == .asteroid {
                 scene?.childNode(withName: sprite.uniqueName)?.removeFromParent()
                 asteroids[sprite.uniqueName] = nil
+            }
+            
+            lives -= 1
+            gameInformationDelegate?.update(lives: lives)
+            
+            if lives == 0 {
+                player.spriteNode.removeFromParent()
+                gameInformationDelegate?.gameOver(points: points)
             }
         case [.playerMissile, .asteroid]:
             for sprite in sprites where sprite.collisionType == .asteroid {
@@ -99,6 +106,9 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate, CollisionIde
                 scene?.childNode(withName: sprite.uniqueName)?.removeFromParent()
                 playerMissiles[sprite.uniqueName] = nil
             }
+            
+            points += 1
+            gameInformationDelegate?.update(points: points)
         case [.playerMissile, .background]:
             for sprite in sprites where sprite.collisionType == .playerMissile {
                 scene?.childNode(withName: sprite.uniqueName)?.removeFromParent()
@@ -151,6 +161,14 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate, CollisionIde
     }
     
     override func update(_ currentTime: TimeInterval) {
+        if lives <= 0 {
+            for (name, asteroid) in asteroids {
+                asteroid.spriteNode.removeFromParent()
+                asteroids[name] = nil
+            }
+            return
+        }
+        
         // Called before each frame is rendered
         while asteroids.count < 10 {
             if let startPoint = randomPointOutsideScreen(), let endPoint = randomPointOutsideScreen() {
@@ -159,7 +177,7 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate, CollisionIde
                 
                 asteroids[asteroid.uniqueName] = asteroid
                 let vector = asteroid.delta(to: endPoint)
-                asteroid.spriteNode.physicsBody?.applyForce(CGVector(dx: vector.dx * 10, dy: vector.dy * 10), at: endPoint)
+                asteroid.spriteNode.physicsBody?.applyImpulse(CGVector(dx: vector.dx * 25, dy: vector.dy * 25))
             }
         }
 

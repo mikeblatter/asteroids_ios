@@ -162,11 +162,75 @@
                         <outlet property="livesLabel" destination="1fa-YT-9zj" id="e0j-nH-P38"/>
                         <outlet property="pointsLabel" destination="vXC-PZ-W2X" id="7bG-sz-i9X"/>
                         <outlet property="sceneView" destination="ULO-rq-HXx" id="hWA-NZ-YEZ"/>
+                        <segue destination="rH6-aJ-Zfw" kind="showDetail" identifier="GameGameOverSegue" id="jN9-YW-CZj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1010" y="134"/>
         </scene>
+        <!--Game Over View Controller-->
+        <scene sceneID="SJg-XR-WMG">
+            <objects>
+                <viewController id="rH6-aJ-Zfw" customClass="GameOverViewController" customModule="SpaceShooter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sNb-Gh-WL0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCi-Gq-hOJ">
+                                <rect key="frame" x="144" y="97" width="87" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Jek-eY-eQS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Bo-CO-uvo">
+                                <rect key="frame" x="154" y="210" width="67" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="kZK-A8-kwn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1G-Ea-Vt5">
+                                <rect key="frame" x="16" y="597" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.76689877719999999" green="0.03688853081" blue="0.073069433480000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="yo9-y5-9vq"/>
+                                </constraints>
+                                <state key="normal" title="Play Again">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="9gz-TD-VJn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="E8y-ym-vDa" firstAttribute="trailing" secondItem="m1G-Ea-Vt5" secondAttribute="trailing" constant="16" id="Cye-yo-iB0"/>
+                            <constraint firstItem="9Bo-CO-uvo" firstAttribute="centerX" secondItem="NCi-Gq-hOJ" secondAttribute="centerX" id="EBP-hE-mWx"/>
+                            <constraint firstItem="m1G-Ea-Vt5" firstAttribute="leading" secondItem="E8y-ym-vDa" secondAttribute="leading" constant="16" id="ZUE-V1-KBO"/>
+                            <constraint firstAttribute="bottom" secondItem="m1G-Ea-Vt5" secondAttribute="bottom" constant="20" symbolic="YES" id="iQz-hl-mSf"/>
+                            <constraint firstItem="NCi-Gq-hOJ" firstAttribute="centerX" secondItem="E8y-ym-vDa" secondAttribute="centerX" id="j8z-T2-d1p"/>
+                            <constraint firstItem="9Bo-CO-uvo" firstAttribute="top" secondItem="NCi-Gq-hOJ" secondAttribute="bottom" constant="92" id="jVN-sk-pZh"/>
+                            <constraint firstItem="NCi-Gq-hOJ" firstAttribute="top" secondItem="E8y-ym-vDa" secondAttribute="top" constant="77" id="ko5-ZL-2eq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="E8y-ym-vDa"/>
+                    </view>
+                    <connections>
+                        <outlet property="pointsLabel" destination="9Bo-CO-uvo" id="NOZ-Te-XAF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iLk-c4-Hxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1752.8" y="131.78410794602701"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="9gz-TD-VJn"/>
+    </inferredMetricsTieBreakers>
 </document>
