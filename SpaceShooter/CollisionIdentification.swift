@@ -18,9 +18,4 @@ enum CollisionType {
 protocol CollisionIdentification {
     var uniqueName: String { get }
     var collisionType: CollisionType { get }
-    // var categoryBitMask: UInt32 { get }
-}
-
-extension CollisionIdentification {
-
 }
