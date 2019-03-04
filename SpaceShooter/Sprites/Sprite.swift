@@ -10,15 +10,24 @@ import SpriteKit
 
 let degreesToRadians = CGFloat.pi / 180
 
+enum SpriteType {
+    case asteroid
+    case background
+    case player
+    case playerMissile
+}
+
 class Sprite: Hashable {
     public let name = UUID().uuidString
     public let spriteNode: SKSpriteNode
+    public let spriteType: SpriteType
     
     public var angle: CGFloat = 0
     public var previousAngle: CGFloat = 0
     
-    public init(spriteNode: SKSpriteNode) {
+    public init(spriteNode: SKSpriteNode, spriteType: SpriteType) {
         self.spriteNode = spriteNode
+        self.spriteType = spriteType
         
         // Set unique name to sprite node
         self.spriteNode.name = name

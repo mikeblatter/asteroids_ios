@@ -15,7 +15,8 @@ class Asteroid: Sprite {
     internal let texture = SKTexture(imageNamed: "Asteroid")
 
     public init(position: CGPoint) {
-        super.init(spriteNode: SKSpriteNode(texture: texture, size: size))
+        super.init(spriteNode: SKSpriteNode(texture: texture, size: size), spriteType: SpriteType.asteroid)
+        
         spriteNode.position = position
         
         spriteNode.physicsBody = SKPhysicsBody(circleOfRadius: max(size.width / 2, size.height / 2))

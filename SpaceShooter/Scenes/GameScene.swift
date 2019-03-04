@@ -65,73 +65,36 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
             }
             
             collision(between: sprites)
-            
-            /*if let nameA = spriteNodeA.name, let nameB = spriteNodeB.name {
-                let asteroidA = asteroids.keys.contains(nameA) ? true : false
-                let asteroidB = asteroids.keys.contains(nameB) ? true : false
-                
-                let playerA = (player.name == nameA) ? true : false
-                let playerB = (player.name == nameB) ? true : false
-                
-                let playerMissileA = playerMissiles.keys.contains(nameA) ? true : false
-                let playerMissileB = playerMissiles.keys.contains(nameB) ? true : false
-                
-                let gameSceneA = (scene.name == nameA) ? true : false
-                let gameSceneB = (scene.name == nameB) ? true : false
-            
-                if (playerMissileA || playerMissileB) && (gameSceneA || gameSceneB) {
-                    // Player missile hit edge of screen, remove
-                    let playerMissileName = (playerMissileA) ? nameA : nameB
-                    playerMissiles[playerMissileName]?.spriteNode.removeFromParent()
-                    playerMissiles[playerMissileName] = nil
-                }
-                
-                if (asteroidA || asteroidB) && (gameSceneA || gameSceneB) {
-                    // Asteroid hit edge of screen, remove
-                    let asteroidName = (asteroidA) ? nameA : nameB
-                    asteroids[asteroidName]?.spriteNode.removeFromParent()
-                    asteroids[asteroidName] = nil
-                }
-                
-                if (asteroidA || asteroidB) && (playerA || playerB) {
-                    // Asteroid hit player, loses life
-                    let asteroidName = (asteroidA) ? nameA : nameB
-                    asteroids[asteroidName]?.spriteNode.removeFromParent()
-                    asteroids[asteroidName] = nil
-                    
-                    //player.spriteNode.removeFromParent()
-                }
-                
-                if (asteroidA || asteroidB) && (playerMissileA || playerMissileB) {
-                    // Player Missile hit Asteroid, destory both
-                    let playerMissileName = (playerMissileA) ? nameA : nameB
-                    playerMissiles[playerMissileName]?.spriteNode.removeFromParent()
-                    playerMissiles[playerMissileName] = nil
-                    
-                    let asteroidName = (asteroidA) ? nameA : nameB
-                    asteroids[asteroidName]?.spriteNode.removeFromParent()
-                    asteroids[asteroidName] = nil
-                }
-            }*/
         }
     }
 
     func collision(between sprites: Set<Sprite>) {
-        /*switch sprites {
-        case [Asteroid, Asteroid]:
+        let spriteTypes: Set<SpriteType> = Set(sprites.map { $0.spriteType })
+        
+        switch spriteTypes {
+        case [.asteroid, .asteroid]:
             for sprite in sprites {
                 sprite.spriteNode.removeFromParent()
                 asteroids[sprite.name] = nil
             }
-        case [Player, Asteroid]:
-            for sprite in sprites where sprite.type == Asteroid {
+        case [.asteroid, .player]:
+            for sprite in sprites where sprite.spriteType == SpriteType.asteroid {
                 sprite.spriteNode.removeFromParent()
                 asteroids[sprite.name] = nil
             }
+        case [.playerMissile, .asteroid]:
+            for sprite in sprites where sprite.spriteType == SpriteType.asteroid {
+                sprite.spriteNode.removeFromParent()
+                asteroids[sprite.name] = nil
+            }
+            
+            for sprite in sprites where sprite.spriteType == SpriteType.playerMissile {
+                sprite.spriteNode.removeFromParent()
+                playerMissiles[sprite.name] = nil
+            }
         default:
             break
-            //image = UIImage(named: "road")
-        }*/
+        }
     }
     
     func touchDown(atPoint position:CGPoint) {

@@ -14,7 +14,8 @@ class PlayerMissile: Sprite {
     internal let texture = SKTexture(imageNamed: "PlayerMissile")
     
     public init(position: CGPoint) {
-        super.init(spriteNode: SKSpriteNode(texture: texture))
+        super.init(spriteNode: SKSpriteNode(texture: texture), spriteType: SpriteType.playerMissile)
+        
         spriteNode.position = position
         spriteNode.name = name
         
