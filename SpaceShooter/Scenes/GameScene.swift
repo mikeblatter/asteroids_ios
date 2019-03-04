@@ -12,11 +12,12 @@ import GameplayKit
 class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate, CollisionIdentification {
     public var gameInformationDelegate: GameInformationDelegate? = nil
     
+    let enlargePhysicsFrameBy: CGFloat = 200
+    
     private var lives = 3
     private var points = 0
     
     private var lastUpdateTime : TimeInterval = 0
-    internal var physicsFrame: CGRect? = nil
     
     // CollisionIdentification
     public let uniqueName = UUID().uuidString
@@ -38,9 +39,9 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate, CollisionIde
     override func didMove(to view: SKView) {
         player.add(to: self)
         
-        physicsFrame = CGRect(x: self.frame.minX - 100, y: self.frame.minY - 100, width: self.frame.width + 200, height: self.frame.height + 200)
+        let physicsFrame = CGRect(x: frame.minX - enlargePhysicsFrameBy, y: frame.minY - enlargePhysicsFrameBy, width: frame.width + enlargePhysicsFrameBy * 2, height: frame.height + enlargePhysicsFrameBy * 2)
         
-        let borderBody = SKPhysicsBody(edgeLoopFrom: physicsFrame!)
+        let borderBody = SKPhysicsBody(edgeLoopFrom: physicsFrame)
         
         borderBody.friction = 0
         borderBody.affectedByGravity = false
