@@ -14,10 +14,9 @@ class PlayerMissile: Sprite {
     internal let texture = SKTexture(imageNamed: "PlayerMissile")
     
     public init(position: CGPoint) {
-        super.init(spriteNode: SKSpriteNode(texture: texture), spriteType: SpriteType.playerMissile)
+        super.init(spriteNode: SKSpriteNode(texture: texture), collisionType: CollisionType.playerMissile)
         
         spriteNode.position = position
-        spriteNode.name = name
         
         spriteNode.physicsBody = SKPhysicsBody(circleOfRadius: max(spriteNode.size.width / 2,spriteNode.size.height / 2))
         spriteNode.physicsBody?.affectedByGravity = false

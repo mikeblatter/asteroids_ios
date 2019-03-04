@@ -10,27 +10,20 @@ import SpriteKit
 
 let degreesToRadians = CGFloat.pi / 180
 
-enum SpriteType {
-    case asteroid
-    case background
-    case player
-    case playerMissile
-}
-
-class Sprite: Hashable {
-    public let name = UUID().uuidString
+class Sprite: CollisionIdentification {
+    public let uniqueName = UUID().uuidString
     public let spriteNode: SKSpriteNode
-    public let spriteType: SpriteType
+    public let collisionType: CollisionType
     
     public var angle: CGFloat = 0
     public var previousAngle: CGFloat = 0
     
-    public init(spriteNode: SKSpriteNode, spriteType: SpriteType) {
+    public init(spriteNode: SKSpriteNode, collisionType: CollisionType) {
         self.spriteNode = spriteNode
-        self.spriteType = spriteType
+        self.collisionType = collisionType
         
         // Set unique name to sprite node
-        self.spriteNode.name = name
+        self.spriteNode.name = uniqueName
     }
     
     public func delta(to otherPosition: CGPoint) -> CGVector {
@@ -60,15 +53,5 @@ class Sprite: Hashable {
     
     public func add(to scene: SKScene) {
         scene.addChild(spriteNode)
-    }
-
-    // MARK: Hashable + Equatable
-    
-    public var hashValue: Int {
-        return name.hashValue
-    }
-    
-    static func == (lhs: Sprite, rhs: Sprite) -> Bool {
-        return lhs.name == rhs.name
     }
 }

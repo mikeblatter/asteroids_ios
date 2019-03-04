@@ -16,7 +16,7 @@ class Player: Sprite {
     internal let shootSound = SKAction.playSoundFileNamed("Shoot.wav", waitForCompletion: false)
     
     public init(position: CGPoint) {
-        super.init(spriteNode: SKSpriteNode(texture: texture), spriteType: SpriteType.player)
+        super.init(spriteNode: SKSpriteNode(texture: texture), collisionType: CollisionType.player)
         
         spriteNode.position = position
 

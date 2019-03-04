@@ -9,9 +9,15 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
+class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate, CollisionIdentification {
+    public let uniqueName = UUID().uuidString
+    
     private var lastUpdateTime : TimeInterval = 0
+    
+    // CollisionIdentification protocol
+    public let collisionType = CollisionType.background
 
+    // Physics
     var physicsFrame: CGRect? = nil
     public static let categoryBitMask = UInt32(8)
     
@@ -24,7 +30,7 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
     override func sceneDidLoad() {
         lastUpdateTime = 0
         
-        scene?.name = UUID().uuidString
+        scene?.name = uniqueName
     }
     
     override func didMove(to view: SKView) {
@@ -48,49 +54,62 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         if let scene = self.scene, let spriteNodeA = contact.bodyA.node, let spriteNodeB = contact.bodyB.node {
             let nodes = [spriteNodeA, spriteNodeB]
-            var sprites: Set<Sprite> = []
+            var bodies: [CollisionIdentification] = []
             
             for node in nodes {
                 if let name = node.name {
                     if let asteroid = asteroids[name] {
-                       sprites.insert(asteroid)
+                       bodies.append(asteroid)
                     }
                     else if let playerMissile = playerMissiles[name] {
-                       sprites.insert(playerMissile)
+                       bodies.append(playerMissile)
                     }
-                    else if player.name == name {
-                       sprites.insert(player)
+                    else if player.uniqueName == name {
+                       bodies.append(player)
+                    }
+                    else if scene.name == name {
+                       bodies.append(self)
                     }
                 }
             }
             
-            collision(between: sprites)
+            collision(between: bodies)
         }
     }
 
-    func collision(between sprites: Set<Sprite>) {
-        let spriteTypes: Set<SpriteType> = Set(sprites.map { $0.spriteType })
+    func collision(between sprites: Array<CollisionIdentification>) {
+        let spriteTypes: Set<CollisionType> = Set(sprites.map { $0.collisionType })
         
         switch spriteTypes {
         case [.asteroid, .asteroid]:
             for sprite in sprites {
-                sprite.spriteNode.removeFromParent()
-                asteroids[sprite.name] = nil
+                scene?.childNode(withName: sprite.uniqueName)?.removeFromParent()
+                asteroids[sprite.uniqueName] = nil
             }
         case [.asteroid, .player]:
-            for sprite in sprites where sprite.spriteType == SpriteType.asteroid {
-                sprite.spriteNode.removeFromParent()
-                asteroids[sprite.name] = nil
+            for sprite in sprites where sprite.collisionType == .asteroid {
+                scene?.childNode(withName: sprite.uniqueName)?.removeFromParent()
+                asteroids[sprite.uniqueName] = nil
             }
         case [.playerMissile, .asteroid]:
-            for sprite in sprites where sprite.spriteType == SpriteType.asteroid {
-                sprite.spriteNode.removeFromParent()
-                asteroids[sprite.name] = nil
+            for sprite in sprites where sprite.collisionType == .asteroid {
+                scene?.childNode(withName: sprite.uniqueName)?.removeFromParent()
+                asteroids[sprite.uniqueName] = nil
             }
             
-            for sprite in sprites where sprite.spriteType == SpriteType.playerMissile {
-                sprite.spriteNode.removeFromParent()
-                playerMissiles[sprite.name] = nil
+            for sprite in sprites where sprite.collisionType == .playerMissile {
+                scene?.childNode(withName: sprite.uniqueName)?.removeFromParent()
+                playerMissiles[sprite.uniqueName] = nil
+            }
+        case [.playerMissile, .background]:
+            for sprite in sprites where sprite.collisionType == .playerMissile {
+                scene?.childNode(withName: sprite.uniqueName)?.removeFromParent()
+                playerMissiles[sprite.uniqueName] = nil
+            }
+        case [.asteroid, .background]:
+            for sprite in sprites where sprite.collisionType == .asteroid {
+                scene?.childNode(withName: sprite.uniqueName)?.removeFromParent()
+                asteroids[sprite.uniqueName] = nil
             }
         default:
             break
@@ -101,7 +120,7 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
         player.rotate(to: position)
         
         let missile = player.createMissile()
-        playerMissiles[missile.name] = missile
+        playerMissiles[missile.uniqueName] = missile
         
         missile.add(to: self)
         
@@ -140,7 +159,7 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate {
                 let asteroid = Asteroid(position: startPoint)
                 asteroid.add(to: self)
                 
-                asteroids[asteroid.name] = asteroid
+                asteroids[asteroid.uniqueName] = asteroid
                 let vector = asteroid.delta(to: endPoint)
                 asteroid.spriteNode.physicsBody?.applyForce(CGVector(dx: vector.dx * 10, dy: vector.dy * 10), at: endPoint)
             }

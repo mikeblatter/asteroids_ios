@@ -15,7 +15,7 @@ class Asteroid: Sprite {
     internal let texture = SKTexture(imageNamed: "Asteroid")
 
     public init(position: CGPoint) {
-        super.init(spriteNode: SKSpriteNode(texture: texture, size: size), spriteType: SpriteType.asteroid)
+        super.init(spriteNode: SKSpriteNode(texture: texture, size: size), collisionType: CollisionType.asteroid)
         
         spriteNode.position = position
         

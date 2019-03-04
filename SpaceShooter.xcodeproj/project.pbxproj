@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E37BE84222CC84A003C44E1 /* CollisionIdentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37BE83222CC849003C44E1 /* CollisionIdentification.swift */; };
 		9E441D7B222712690024AE9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E441D7A222712690024AE9B /* AppDelegate.swift */; };
 		9E441D7D222712690024AE9B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9E441D7C222712690024AE9B /* GameScene.sks */; };
 		9E441D7F222712690024AE9B /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9E441D7E222712690024AE9B /* Actions.sks */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E37BE83222CC849003C44E1 /* CollisionIdentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionIdentification.swift; sourceTree = "<group>"; };
 		9E441D77222712690024AE9B /* SpaceShooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceShooter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E441D7A222712690024AE9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E441D7C222712690024AE9B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				9EA5A4032227492E002A7AB5 /* Assets */,
 				9ECFC875222C448300372B2A /* Scenes */,
 				9ECFC86622288E7300372B2A /* Sprites */,
+				9E37BE83222CC849003C44E1 /* CollisionIdentification.swift */,
 				9E441D7A222712690024AE9B /* AppDelegate.swift */,
 				9E441D82222712690024AE9B /* GameViewController.swift */,
 				9E441D84222712690024AE9B /* Main.storyboard */,
@@ -319,6 +322,7 @@
 				9ECFC8722228A7C000372B2A /* PlayerMissile.swift in Sources */,
 				9E441D81222712690024AE9B /* GameScene.swift in Sources */,
 				9ECFC8742229F11300372B2A /* SpriteLocation.swift in Sources */,
+				9E37BE84222CC84A003C44E1 /* CollisionIdentification.swift in Sources */,
 				9E441D83222712690024AE9B /* GameViewController.swift in Sources */,
 				9ECFC87022289BEF00372B2A /* Sprite.swift in Sources */,
 				9E441D7B222712690024AE9B /* AppDelegate.swift in Sources */,
