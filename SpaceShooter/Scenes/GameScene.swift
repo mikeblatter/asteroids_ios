@@ -178,7 +178,7 @@ class GameScene: SKScene, SpriteLocation, SKPhysicsContactDelegate, CollisionIde
                 
                 asteroids[asteroid.uniqueName] = asteroid
                 let vector = asteroid.delta(to: endPoint)
-                asteroid.spriteNode.physicsBody?.applyImpulse(CGVector(dx: vector.dx * 25, dy: vector.dy * 25))
+                asteroid.spriteNode.physicsBody?.applyImpulse(CGVector(dx: vector.dx * 100, dy: vector.dy * 100))
             }
         }
 
