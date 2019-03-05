@@ -2,6 +2,11 @@
 
 Wanted to make a simple game in iOS to see how SpriteKit works and to get some practice in Swift.
 
+## Languages/Libraries/Versions
+
+- Swift 5
+- SpriteKit
+
 ## Code/Research Used
 
 - https://www.raywenderlich.com/5504-trigonometry-for-game-programming-spritekit-and-swift-tutorial-part-1-2
