@@ -17,7 +17,7 @@ class GameScene: SKScene, ScenePhysics, SKPhysicsContactDelegate, CollisionIdent
     
     private var lastUpdateTime : TimeInterval = 0
     
-    // SpriteLocation
+    // ScenePhysics
     let enlargePhysicsFrameBy: CGFloat = 200
     
     // CollisionIdentification
