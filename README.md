@@ -7,6 +7,13 @@ Wanted to make a simple game in iOS to see how SpriteKit works and to get some p
 - Swift 5
 - SpriteKit
 
+## Notes on Code
+
+Think there are a lot of improvements needed for splitting out different behaviors like collision detection
+and doing more protocol composition.
+
+Going to leave code as is and improve implementations in: https://github.com/mikeblatter/bubble_jam
+
 ## Code/Research Used
 
 - https://www.raywenderlich.com/5504-trigonometry-for-game-programming-spritekit-and-swift-tutorial-part-1-2
